@@ -6,7 +6,7 @@
 
 /* Apply background color and font family to the entire body */
 body {
-  background-color: #EBEDEF;
+  background-color: rgba(242, 242, 242);
   font-family: Arial, sans-serif;
 }
 
@@ -96,18 +96,36 @@ li:hover a[href="#"]:before {
 
 
 /*---------------------Section-----------------*/
+.section-main {
+  display: flex;
+  justify-content: center;
+}
+
 .main-content {
   margin: 5vh 0;
+  width: 70vw;
 
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
+.main-content div {
+  width: 40vw;
+}
+
 .section-img {
   height: 60vh;
 }
 
+
+.section-main-content-text {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 
 /*---------------------Footer-----------------*/
