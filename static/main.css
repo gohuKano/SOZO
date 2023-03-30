@@ -6,7 +6,7 @@
 
 /* Apply background color and font family to the entire body */
 body {
-  background-color: #f0f0f0;
+  background-color: #EBEDEF;
   font-family: Arial, sans-serif;
 }
 
@@ -14,7 +14,7 @@ body {
 
 /* Apply background color and text color to the header */
 header {
-  background-color: #242424;
+  background-color: #1B2631;
   color: #fff;
 
   /* Apply custom font family to the header */
@@ -27,11 +27,12 @@ header {
 
   /* Apply padding to the header */
   padding: 15px;
+  height: 15vh;
 }
 
 /* Apply font size and center text in the header */
 .header h1 {
-  font-size: 3em;
+  font-size: 3.3em;
   text-align: center;
 }
 
@@ -48,7 +49,11 @@ and remove bullet points from list items */
 /* Remove underline from links and apply text color to links */
 a {
   text-decoration: none;
-  color: #fff;
+  color: #85929E;
+}
+
+.header__list__ul a {
+  font-style: italic;
 }
 
 li:hover a[href="#"]:before {
