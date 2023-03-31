@@ -5,7 +5,6 @@ const compte_button_hide = document.getElementById("compte-button-hide");
 // get the form_client element
 const form_client = document.getElementById("form-client-div");
 
-
 // when the compte_button element is touched by the user,
 // the form will change its position and it will be visible by the user
 compte_button_show.addEventListener("click", () => {

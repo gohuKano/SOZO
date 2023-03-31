@@ -17,7 +17,7 @@ app = Flask(__name__)
 @app.route("/form_client", methods = ["GET", "POST"])
 def form_client():
 
-    print("ok")
+    
 
     return render_template("index.html")
 
