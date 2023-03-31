@@ -32,7 +32,16 @@ header {
   background-color: white;
 }
 
-#compte-button {
+#compte-button-show {
+  height: 40px;
+  width: 40px;
+  background-color: white; 
+}
+
+#compte-button-hide {
+  position: absolute;
+  left: 95%;
+  top: 2vh;
   height: 40px;
   width: 40px;
   background-color: white; 
