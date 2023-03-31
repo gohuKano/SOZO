@@ -14,7 +14,6 @@
 
 
 <body>
-  
   <header class = "header">
     
     <nav class = "header header__list">
@@ -38,12 +37,43 @@
         <li><a href="#" data-text="βουνό" data-hover="Montagne">βουνό</a></li>
 
         <!-- Compte -->
-        <div class="header-logo"></div>
+        <div id="compte-button"></div>
 
       </ul>
     </nav>
-
   </header>
+
+  <div id="form-client-div">
+
+    <form methode="post" action="{{ url_for('form_client') }}" class="form-client">
+      <h2>Se Connecter</h2>
+      <label for="e-mail">E-mail</label>
+      <input type="text" id="e-mail" name="e-mail">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+
+      <input type="submit" value="Valider">
+    </form>
+
+    <form methode="post" action="{{ url_for('form_client') }}" class="form-client">
+      <h2>S'inscrire</h2>
+      <label for="noml">Nom</label>
+      <input type="text" id="nom" name="nom">
+
+      <label for="prenom">Prenom</label>
+      <input type="text" id="prenom" name="prenom">
+
+      <label for="e-mail">E-mail</label>
+      <input type="text" id="e-mail" name="e-mail">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+
+      <input type="submit" value="Valider">
+    </form>
+  
+  </div>
 
   <section class = "section-main">
 

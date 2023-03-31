@@ -15,7 +15,6 @@ body {
 /* Apply background color and text color to the header */
 header {
   background-color: #1B2631;
-  color: #fff;
 
   /* Apply custom font family to the header */
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -31,6 +30,12 @@ header {
   height: 40px;
   width: 40px;
   background-color: white;
+}
+
+#compte-button {
+  height: 40px;
+  width: 40px;
+  background-color: white; 
 }
 
 /* Apply font size and center text in the header */
@@ -99,6 +104,62 @@ li:hover a[href="#"]:before {
   visibility: hidden;
 }
 
+
+#form-client-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  position: absolute;
+  top: -60vh;
+  width: 100%;
+}
+
+.form-client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  color: #85929E;
+
+  background-color: #1B2631;
+}
+
+.form-client h2{
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  width: 40%;
+  max-width: 400px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #0062cc;
+}
 
 /*---------------------Section-----------------*/
 .section-main {
