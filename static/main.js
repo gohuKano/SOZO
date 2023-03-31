@@ -1,6 +1,8 @@
-// get the element in the html
+// get the buttons to hide and show the form
 const compte_button_show = document.getElementById("compte-button-show");
 const compte_button_hide = document.getElementById("compte-button-hide");
+
+// get the form_client element
 const form_client = document.getElementById("form-client-div");
 
 
@@ -9,5 +11,11 @@ const form_client = document.getElementById("form-client-div");
 compte_button_show.addEventListener("click", () => {
 
     form_client.style.top = "0vh";
+    form_client.style.transition = "top 0.7s ease-in-out";
+});
+
+compte_button_hide.addEventListener("click", () => {
+
+    form_client.style.top = "-60vh";
     form_client.style.transition = "top 0.7s ease-in-out";
 });
