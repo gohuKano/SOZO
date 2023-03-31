@@ -9,15 +9,40 @@
 # Changer le nom des ul li en français
 
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
 
-@app.route("/form_client", methods = ["GET", "POST"])
-def form_client():
+@app.route("/form_client_sinscrire", methods = ["POST"])
+def form_client_sinscrire():
 
-    
+    try:
+        nom = request.form.get('nom')
+        prenom = request.form.get('prenom')
+        email = request.form.get("e-mail")
+        password = request.form.get("password")
+
+        print(nom, prenom, email, password)
+
+    except Exception as e:
+        print(e)
+
+    return render_template("index.html")
+
+@app.route("/form_client_se_connecter", methods = ["POST"])
+def form_client_se_connecter():
+
+    try:
+        nom = request.form.get('nom')
+        prenom = request.form.get('prenom')
+        email = request.form.get("e-mail")
+        password = request.form.get("password")
+
+        print(nom, prenom, email, password)
+
+    except Exception as e:
+        print(e)
 
     return render_template("index.html")
 
