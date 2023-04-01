@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request
 import psycopg2
 
-
 app = Flask(__name__)
 
 name_of_db = "sozo_db"
 username = "hugo_az"
 password_database = "sozo"
-
 
 def get_db_connection():
 
@@ -17,7 +15,6 @@ def get_db_connection():
         user = username,
         password = password_database
     )
-
     return conn
 
 @app.route("/form_client_sinscrire", methods = ["POST"])
@@ -36,39 +33,68 @@ def form_client_sinscrire():
         password = request.form.get("password")
         print(prenom, nom, email, password)
 
-        # write into the database, but precaution a prendre
+        # check if the email already exists in the database
         cur.execute(
-            'INSERT INTO accounts (prenom, nom, password, email)'
-            'VALUES (%s, %s, %s, %s)',
-            (
-                prenom,
-                nom,
-                password,
-                email
-            )
+            'SELECT email FROM accounts WHERE email = %s',
+            (email,)
         )
-        conn.commit()
-        print("Data wrote into the database !")
+        existing_email = cur.fetchone()
+
+        if existing_email:
+            # display alert message
+            print("This email is already registered.")
+            return render_template("index.html", alert_message="This email is already registered.")
+        else:
+            # write into the database
+            cur.execute(
+                'INSERT INTO accounts (prenom, nom, password, email)'
+                'VALUES (%s, %s, %s, %s)',
+                (
+                    prenom,
+                    nom,
+                    password,
+                    email
+                )
+            )
+            conn.commit()
+            print("Data wrote into the database !")
+            return render_template("index.html", alert_message="Account created successfully.")
 
     except Exception as e:
         print(e)
+        return render_template("index.html", alert_message="An error occurred. Please try again later.")
 
-    return render_template("index.html")
 
-@app.route("/form_client_se_connecter", methods = ["POST"])
+@app.route("/form_client_se_connecter", methods=["POST"])
 def form_client_se_connecter():
 
     try:
         email = request.form.get("e-mail")
         password = request.form.get("password")
 
-        print(email, password)
+        # connecting to the database
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        # check if the email and password match a record in the database
+        cur.execute(
+            "SELECT * FROM accounts WHERE email = %s AND password = %s",
+            (email, password)
+        )
+        user = cur.fetchone()
+
+        if user:
+            # display alert message
+            print("Logged in successfully.")
+            return render_template("index.html", alert_message="Logged in successfully.")
+        else:
+            # display alert message
+            print("Invalid email or password.")
+            return render_template("index.html", alert_message="Invalid email or password.")
 
     except Exception as e:
         print(e)
-
-    return render_template("index.html")
-
+        return render_template("index.html", alert_message="An error occurred. Please try again later.")
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
