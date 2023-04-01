@@ -34,12 +34,10 @@ def form_client_sinscrire():
 def form_client_se_connecter():
 
     try:
-        nom = request.form.get('nom')
-        prenom = request.form.get('prenom')
         email = request.form.get("e-mail")
         password = request.form.get("password")
 
-        print(nom, prenom, email, password)
+        print(email, password)
 
     except Exception as e:
         print(e)
