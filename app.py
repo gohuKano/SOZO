@@ -69,6 +69,7 @@ def form_client_sinscrire():
 def form_client_se_connecter():
 
     try:
+        # getting data from the user
         email = request.form.get("e-mail")
         password = request.form.get("password")
 
