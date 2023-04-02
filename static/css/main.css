@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("woff2"), url("../fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Lily_Script_One";
+  src: url("../fonts/Lily_Script_One/LilyScriptOne-Regular.ttf") format("woff2");
+}
+@font-face {
+  font-family: "Jura";
+  src: url("../fonts/Jura/static/Jura-SemiBold.ttf") format("woff2");
+}
+* {
+  margin: 0;
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9AD5BC;
+}
+.header__logo {
+  height: 60px;
+}
+.header__nav {
+  width: 50vw;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.header__nav__container {
+  text-align: center;
+}
+.header__nav__container:hover .header__nav__container__text::before {
+  width: 100%;
+  background-color: #9AD5BC;
+}
+.header__nav__container__text {
+  position: relative;
+  text-decoration: none;
+}
+.header__nav__container__text--SOZO {
+  font-size: 2.2em;
+}
+.header__nav__container__text:hover {
+  color: #fff;
+}
+.header__nav__container__text::before {
+  content: attr(data-text);
+  position: absolute;
+  width: 0;
+  overflow: hidden;
+  transition: 0.6s;
+}
+.header__nav div {
+  display: flex;
+  flex-direction: column;
+}
+.header__nav div:hover .header__nav__line {
+  transform: scaleX(-100%);
+  transition: transform 400ms;
+}
+.header__nav .header__nav__line {
+  transform: scaleX(0%);
+  transition: transform 400ms 200ms;
+  height: 2px;
+  background-color: #76c6a4;
+  justify-self: end;
+}
+.header a {
+  color: #fff;
+  text-align: center;
+  font-family: "Jura";
+}
+.header--SOZO {
+  font-size: 40px;
+}
+.header__function {
+  width: 7vw;
+  justify-content: space-around;
+}
+.header__function img {
+  height: 25px;
+  transition: transform 200ms;
+}
+.header__function img:hover {
+  transform: scale(1.2);
+  transition: transform 200ms;
+}
+
+.carousel-item {
+  min-height: 280px;
+  max-height: calc(100vh - 60px);
+}
+
+/*# sourceMappingURL=main.css.map */
