@@ -20,8 +20,6 @@ CREATE TABLE products (
 CREATE TABLE cart (
     id SERIAL PRIMARY KEY,
     client_id INTEGER REFERENCES client(id),
-    product_id INTEGER REFERENCES product(id),
-    quantity INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW()
+    product_id INTEGER REFERENCES product(id)
 );
 
