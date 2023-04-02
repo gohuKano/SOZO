@@ -11,7 +11,6 @@
   src: url("../fonts/Jura/static/Jura-SemiBold.ttf") format("woff2");
 }
 * {
-  margin: 0;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -115,6 +114,10 @@
   padding: 0;
   color: #fff;
   text-align: center;
+}
+
+.login-box .user-box label {
+  margin-top: -20px;
 }
 
 .login-box .user-box input {
