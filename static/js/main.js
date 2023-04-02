@@ -1,12 +1,15 @@
 const button_form = document.getElementById("button-form");
 const login_box = document.getElementById("login-box");
 const login_box_blur = document.getElementById("login-box-blur");
+const to_blur = document.querySelectorAll(".to-blur");
 
 function openForm() {
+    for (let i = 0; i < to_blur.length; i++) {
+        to_blur[i].style.filter = "blur(1.5px)";
+    }
 
     login_box_blur.style.display = "block";
-    login_box_blur.style.opacity = 0.7;
-    login_box_blur.style.filter = "blur(10px)";
+    login_box_blur.style.opacity = 0.6;
 
     login_box.style.display = "block";
     login_box.style.opacity = 0;
@@ -33,13 +36,19 @@ document.addEventListener('click', function(event) {
             login_box.style.opacity = opacity;
             login_box_blur.style.opacity -= 0.03;
 
+            for (let i = 0; i < to_blur.length; i++) {
+                to_blur[i].style.filter = "blur(0px)";
+            }
+
             if (opacity <= 0) {
-                login_box_blur.style.display = "none";
+                login_box.style.display = "none";
                 login_box_blur.style.display = "none";
                 login_box_blur.style.opacity = 0;
+                document.body.style.filter = "blur(0px)";
 
                 clearInterval(interval);
             }
         }, 10);
     }
+
 });
