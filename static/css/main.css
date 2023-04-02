@@ -79,7 +79,7 @@
 }
 .header__function {
   width: 7vw;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .header__function img {
   height: 25px;
