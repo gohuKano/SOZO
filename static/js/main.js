@@ -1,12 +1,17 @@
-const login_box = document.getElementById("login-box");
 const button_form = document.getElementById("button-form");
+const login_box = document.getElementById("login-box");
+const login_box_blur = document.getElementById("login-box-blur");
 
 function openForm() {
-    console.log("Opening login box...");
+
+    login_box_blur.style.display = "block";
+    login_box_blur.style.opacity = 0.7;
+    login_box_blur.style.filter = "blur(10px)";
 
     login_box.style.display = "block";
     login_box.style.opacity = 0;
     let opacity = 0;
+
     const interval = setInterval(function() {
         opacity += 0.05;
         login_box.style.opacity = opacity;
@@ -17,24 +22,24 @@ function openForm() {
 }
 
 document.addEventListener('click', function(event) {
-    console.log("Clicked outside login box...");
 
     const isClickInside = login_box.contains(event.target);
     const button_formIsClicked = button_form.contains(event.target);
-
-    console.log("isClickInside: ", isClickInside);
 
     if (!isClickInside && !button_formIsClicked && login_box.style.display === "block") {
         let opacity = 1;
         const interval = setInterval(function() {
             opacity -= 0.05;
             login_box.style.opacity = opacity;
+            login_box_blur.style.opacity -= 0.03;
+
             if (opacity <= 0) {
-                login_box.style.display = "none";
+                login_box_blur.style.display = "none";
+                login_box_blur.style.display = "none";
+                login_box_blur.style.opacity = 0;
+
                 clearInterval(interval);
             }
         }, 10);
-
-        console.log("Closing login box...");
     }
 });

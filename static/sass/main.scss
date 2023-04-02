@@ -122,9 +122,22 @@ $color-primary:#9AD5BC;
   max-height: calc(100vh - 60px);
 }
 
+// div element to hide and seek the body
+#login-box-blur{
+
+  z-index: 2;
+  opacity: 0;
+  display: none;
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #242026;
+}
+
 .login-box {
   display:none;
-  z-index: 99;
+  z-index: 3;
   position: absolute;
   top: 50%;
   left: 50%;

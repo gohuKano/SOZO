@@ -16,6 +16,38 @@
 </head>
 
 <body>
+    <!-- div element to hide the website -->
+    <div id="login-box-blur"></div>
+    <!-- form -->
+    <section id="section">
+        <div id="login-box" class="login-box">
+            <h2>Login</h2>
+            <form>
+                <div class="user-box">
+                    <input type="text" id="" name="" required="">
+                    <label>Nom d'utilisateur</label>
+                </div>
+                
+                <div class="user-box">
+                    <input type="password" name="" required="">
+                    <label>Mot de passe</label>
+                </div>
+    
+                <div class="button-form">
+    
+                    <a id="submit" href="#">
+                       Valider
+                    </a>
+    
+                    <div id="register">
+                        Pas encore de compte ?
+                        <a href="#">S'inscrire</a>
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    </section>
     <!----------------------------------------->
     <!--------------- Header ------------------>
     <!----------------------------------------->
@@ -56,43 +88,10 @@
             <button type="button" class="btn" onclick=""><img src="../static/images/cart.svg" alt="cart logo"></button>
         </div>
     </header>
-    
     <!----------------------------------------->
     <!----------------- Main ------------------>
     <!----------------------------------------->
-    
     <main>
-        <section>
-            <div id="login-box" class="login-box">
-                <h2>Login</h2>
-                <form>
-                    <div class="user-box">
-                        <input type="text" id="" name="" required="">
-                        <label>Nom d'utilisateur</label>
-                    </div>
-                    
-                    <div class="user-box">
-                        <input type="password" name="" required="">
-                        <label>Mot de passe</label>
-                    </div>
-        
-                    <div class="button-form">
-        
-                        <a id="submit" href="#">
-                           Valider
-                        </a>
-        
-                        <div id="register">
-                            Pas encore de compte ?
-                            <a href="#">S'inscrire</a>
-                        </div>
-        
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        
         <section class="carousel">
             <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
                 <!-- Carousel indicators -->
@@ -128,7 +127,6 @@
                 </a>
             </div>
         </section>
-
     </main>
 
     <script src="../static/js/main.js"></script>
