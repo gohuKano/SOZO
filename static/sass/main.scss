@@ -31,7 +31,7 @@ $color-primary:#9AD5BC;
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: $color-primary;
 
