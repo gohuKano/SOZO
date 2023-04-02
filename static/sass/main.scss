@@ -22,7 +22,7 @@ $color-primary:#9AD5BC;
   justify-content: space-between;
   align-items: center;
 }
-
+  
 * {
   margin:0;
   text-decoration: none;
@@ -31,12 +31,13 @@ $color-primary:#9AD5BC;
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: $color-primary;
 
   &__logo {
     height: 60px;
+    width: 102px;
   }
 
   &__nav {
@@ -104,7 +105,6 @@ $color-primary:#9AD5BC;
     }
 
   &__function {
-    width: 7vw;
     justify-content: space-between;
     img {
       height: 25px;

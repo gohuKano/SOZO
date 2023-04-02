@@ -18,12 +18,13 @@
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #9AD5BC;
 }
 .header__logo {
   height: 60px;
+  width: 102px;
 }
 .header__nav {
   width: 50vw;
@@ -78,7 +79,6 @@
   font-size: 40px;
 }
 .header__function {
-  width: 7vw;
   justify-content: space-between;
 }
 .header__function img {
