@@ -94,6 +94,11 @@
   min-height: 280px;
   max-height: calc(100vh - 60px);
 }
+.carousel-item div {
+  border: 2px solid black;
+  width: 50px;
+  height: 10px;
+}
 
 #login-box-blur {
   z-index: 2;
@@ -115,6 +120,7 @@
   padding: 40px;
   transform: translate(-50%, -50%);
   background: #242026;
+  box-shadow: 0 15px 25px #9AD5BC;
   border-radius: 10px;
   font-family: "Montserrat";
 }
@@ -173,13 +179,13 @@
   letter-spacing: 4px;
   border: 1px solid #fff;
   margin: auto;
+  background-color: #242026;
 }
 
 #submit:hover {
-  background: #9AD5BC;
+  background: #52b78c;
   color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #9AD5BC, 0 0 25px, 0 0 50px #9AD5BC, 0 0 100px #9AD5BC;
+  box-shadow: 0 0 2px #9AD5BC, 0 0 25px, 0 0 50px #9AD5BC, 0 0 100px #9AD5BC;
 }
 
 .button-form {
