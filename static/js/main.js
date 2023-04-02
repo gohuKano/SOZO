@@ -22,6 +22,7 @@ function openForm() {
             clearInterval(interval);
         }
     }, 10);
+    document.documentElement.style.overflow = 'hidden';
 }
 
 document.addEventListener('click', function(event) {
@@ -32,6 +33,7 @@ document.addEventListener('click', function(event) {
     if (!isClickInside && !button_formIsClicked && login_box.style.display === "block") {
         let opacity = 1;
         const interval = setInterval(function() {
+            document.documentElement.style.overflow = 'visible';
             opacity -= 0.05;
             login_box.style.opacity = opacity;
             login_box_blur.style.opacity -= 0.03;
