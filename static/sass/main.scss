@@ -26,6 +26,7 @@ $color-primary:#9AD5BC;
 * {
   margin:0;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .header {
@@ -134,6 +135,7 @@ $color-primary:#9AD5BC;
   background: #242026;
   //box-shadow: 0 15px 25px $color-primary;
   border-radius: 10px;
+  font-family: 'Montserrat';
 }
 
 .login-box h2 {

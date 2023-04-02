@@ -13,6 +13,7 @@
 * {
   margin: 0;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .header {
@@ -106,6 +107,7 @@
   transform: translate(-50%, -50%);
   background: #242026;
   border-radius: 10px;
+  font-family: "Montserrat";
 }
 
 .login-box h2 {
