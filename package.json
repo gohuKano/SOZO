@@ -1,7 +1,7 @@
 {
   "name": "writing-sass",
   "version": "1.0.0",
-  "description": "Joe Blow's portfolio",
+  "description": "SOZO website",
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch ./static/sass/main.scss:./static/css/main.css",
@@ -11,11 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/gerkx/maintainable-css-with-sass.git"
   },
-  "author": "",
+  "author": "Hugo Azazgour & Victor Dewailly & Matthieu Blanchard",
   "license": "ISC",
   "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/gerkx/maintainable-css-with-sass/issues"
   },
-  "homepage": "https://github.com/gerkx/maintainable-css-with-sass#readme"
+  "homepage": "https://github.com/gerkx/maintainable-css-with-sass#readme",
+  "dependencies": {
+    "sass": "^1.60.0"
+  }
 }
