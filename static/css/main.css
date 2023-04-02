@@ -92,7 +92,7 @@
 
 .carousel-item {
   min-height: 280px;
-  max-height: calc(100vh - 60px);
+  max-height: 100vh;
 }
 
 /*# sourceMappingURL=main.css.map */
