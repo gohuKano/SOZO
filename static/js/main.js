@@ -2,6 +2,7 @@ const button_form = document.getElementById("button-form");
 const login_box = document.getElementById("login-box");
 const login_box_blur = document.getElementById("login-box-blur");
 const to_blur = document.querySelectorAll(".to-blur");
+// const header = document.getElementById("header");
 
 function openForm() {
     for (let i = 0; i < to_blur.length; i++) {
@@ -10,6 +11,8 @@ function openForm() {
 
     login_box_blur.style.display = "block";
     login_box_blur.style.opacity = 0.6;
+    
+
 
     login_box.style.display = "block";
     login_box.style.opacity = 0;
@@ -54,3 +57,8 @@ document.addEventListener('click', function(event) {
     }
 
 });
+
+const enable = (e) => {
+    document.getElementById('burger').classList.toggle("open");
+    document.getElementById("mobile-only__nav").classList.toggle("mobile-only__nav-open");
+};
