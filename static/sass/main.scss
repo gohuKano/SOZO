@@ -222,7 +222,7 @@ $color-primary:#9AD5BC;
 .login-box {
   display:none;
   z-index: 5;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 400px;

@@ -14,6 +14,23 @@ function openForm() {
     
 
 
+    // Obtenez la largeur et la hauteur de la fenêtre de l'utilisateur
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    // Obtenez la largeur et la hauteur de la boîte de dialogue
+    const loginBoxWidth = login_box.offsetWidth;
+    const loginBoxHeight = login_box.offsetHeight;
+
+    // Calculez les coordonnées de la position X et Y pour centrer la boîte de dialogue
+    const loginBoxPosX = (windowWidth - loginBoxWidth) / 2;
+    const loginBoxPosY = (windowHeight - loginBoxHeight) / 2;
+
+    // Définissez les coordonnées de position X et Y
+    login_box.style.left = loginBoxPosX + 'px';
+    login_box.style.top = loginBoxPosY + 'px';
+
+    // Montrez la boîte de dialogue
     login_box.style.display = "block";
     login_box.style.opacity = 0;
     let opacity = 0;
@@ -25,8 +42,11 @@ function openForm() {
             clearInterval(interval);
         }
     }, 10);
+
+    // Empêchez le défilement de la page
     document.documentElement.style.overflow = 'hidden';
-}
+    }
+    
 
 document.addEventListener('click', function(event) {
 
