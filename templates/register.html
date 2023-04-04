@@ -115,21 +115,30 @@
 
     <main class="main-register">
         
-        <form method="POST" action="login" class="main-register__form">
+        <form action="register" class="main-register__form">
 
-            <input type="text" id="prenom" name="prenom" placeholder="Prénom *" required>
+            <select class="main-register__form__field" id="gender" name="gender" required>
+                <option value="" disabled selected>Genre *</option>
+                <option value="female">Femme</option>
+                <option value="male">Homme</option>
+                <option value="nonbinary">Non-binaire</option>
+                <option value="prefer-not-to-say">Prefere ne pas dire</option>
+                <option value="other">Autre</option>
+            </select>
 
-            <input type="text" id="nom" name="nom" placeholder="Nom *" required>            
+            <input class="main-register__form__field" type="text" id="prenom" name="prenom" placeholder="Prénom *" required>
 
-            <input type="email" id="email" name="email" placeholder="Email *" required>
+            <input class="main-register__form__field" type="text" id="nom" name="nom" placeholder="Nom *" required>            
+
+            <input class="main-register__form__field" type="email" id="email" name="email" placeholder="Email *" required>
             
-            <input type="email" id="confirm-email" name="confirm-email" placeholder="Confirmation Email *" required>
+            <input class="main-register__form__field" type="email" id="confirm-email" name="confirm-email" placeholder="Confirmation Email *" required>
             
-            <input type="password" id="password" name="password" placeholder="Mot de passe *" required>
+            <input class="main-register__form__field" type="password" id="password" name="password" placeholder="Mot de passe *" required>
             
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmation Mot de passe * " required>
+            <input class="main-register__form__field" type="password" id="confirm-password" name="confirm-password" placeholder="Confirmation Mot de passe * " required>
             
-            <input type="submit" value="Register">
+            <input class="main-register__form__field" type="submit" value="S'INSCRIRE">
 
         </form>
 

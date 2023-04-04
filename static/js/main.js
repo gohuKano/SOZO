@@ -3,15 +3,15 @@ const login_box = document.getElementById("login-box");
 const login_box_blur = document.getElementById("login-box-blur");
 const to_blur = document.querySelectorAll(".to-blur");
 
-const enable_Form = (e) => {
+function enable_Form() {
     document.getElementById('login-box').classList.toggle("show");
 
-    // for (let i = 0; i < to_blur.length; i++) {
-    //     to_blur[i].style.filter = "blur(1.5px)";
-    // }
+    for (let i = 0; i < to_blur.length; i++) {
+        to_blur[i].style.filter = "blur(1.5px)";
+    }
 
-    // login_box_blur.style.display = "block";
-    // login_box_blur.style.opacity = 0.6;
+    login_box_blur.style.display = "block";
+    login_box_blur.style.opacity = 0.6;
     
 
 
@@ -32,19 +32,19 @@ const enable_Form = (e) => {
     login_box.style.top = loginBoxPosY + 'px';
 
     // Montrez la boîte de dialogue
-    // login_box.style.display = "block";
-    // login_box.style.opacity = 0;
-    // let opacity = 0;
+    login_box.style.display = "block";
+    login_box.style.opacity = 0;
+    let opacity = 0;
 
 
     // to change :
-    // const interval = setInterval(function() {
-    //     opacity += 0.05;
-    //     login_box.style.opacity = opacity;
-    //     if (opacity >= 1) {
-    //         clearInterval(interval);
-    //     }
-    // }, 10);
+    const interval = setInterval(function() {
+        opacity += 0.05;
+        login_box.style.opacity = opacity;
+        if (opacity >= 1) {
+            clearInterval(interval);
+        }
+    }, 10);
 
     // Empêchez le défilement de la page
     document.documentElement.style.overflow = 'hidden';

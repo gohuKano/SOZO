@@ -459,14 +459,14 @@ $color-primary:#9AD5BC;
 // ---------------------------------------
 
 .main-register {
-  border: black solid 1px;
+  // border: black solid 1px;
 
   display: flex;
   flex-direction: column;
 
-
   .main-register__form {
-    border: black solid 1px;
+    // border: black solid 1px;
+
     justify-content: center;
     align-items: center;
 
@@ -477,10 +477,38 @@ $color-primary:#9AD5BC;
     justify-content: space-around;
   }
 
-  input {
+  .main-register__form__field {
+    border: rgb(25, 25, 25) solid 1px;
     padding: 15px;
     width: 40vw;
     font-family: 'Jura';
+
+    &:focus {
+      border-color: $color-primary;
+      border-width: 1.5px;
+      outline: none;
+    }
   }
 
+  .main-register__form__field[type="submit"] {
+    background-color: darken($color-primary, 20);
+    border: none;
+    color: #fff;
+
+    padding: 16px 32px;
+    margin: 4px 2px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+  
+    &:hover {
+      background-color: darken($color-primary, 30);
+      border: none;
+      color: #fff;
+    }
+  }
 }

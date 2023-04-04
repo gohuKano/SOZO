@@ -4,6 +4,10 @@
 # lorsqu'il est connecté, lui offrir la possibilité 
 # de voir les settings ( adresse, ... ) de son compte.
 
+# TODO :
+# ajouter l'annimation dans le register.html lorsque
+# le user client sur un input ( cf. voir site stone island )
+
 from flask import Flask, render_template, request
 import psycopg2
 
@@ -23,7 +27,7 @@ def get_db_connection():
     )
     return conn
 
-@app.route("/register")
+@app.route("/register", methods=["POST"])
 def register():
 
     try:
