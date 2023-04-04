@@ -167,16 +167,6 @@
   }
 }
 
-.carousel-item {
-  min-height: 280px;
-  max-height: calc(100vh - 60px);
-}
-.carousel-item div {
-  border: 2px solid black;
-  width: 50px;
-  height: 10px;
-}
-
 #login-box-blur {
   z-index: 4;
   opacity: 0;
@@ -200,6 +190,13 @@
   box-shadow: 0 15px 25px #9AD5BC;
   border-radius: 10px;
   font-family: "Montserrat";
+}
+
+#login-box.show {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .login-box h2 {
@@ -284,6 +281,10 @@
   margin: auto;
   color: #fff;
   text-decoration: none;
+}
+
+.to_blur {
+  filter: blur(1.5px);
 }
 
 .mobile-only__nav {
@@ -389,6 +390,37 @@
   height: 2px;
   background-color: #52b78c;
   justify-self: end;
+}
+
+.carousel-item {
+  min-height: 280px;
+  max-height: calc(100vh - 60px);
+}
+.carousel-item div {
+  border: 2px solid black;
+  width: 50px;
+  height: 10px;
+}
+
+.main-register {
+  border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+}
+.main-register .main-register__form {
+  border: black solid 1px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.main-register input {
+  padding: 15px;
+  width: 40vw;
+  font-family: "Jura";
 }
 
 /*# sourceMappingURL=main.css.map */

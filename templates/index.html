@@ -16,8 +16,6 @@
 </head>
 
 <body style="height: 300vh;">
-
-    
     
     <!-- form -->
     <section>
@@ -54,15 +52,17 @@
     <!--------------- Header ------------------>
     <!----------------------------------------->
     <header class="header to-blur">
-        <a href = "/">
-            <div id="burger" class="header header__burger" onclick="enable()">
+        <div>
+            <div id="burger" class="header header__burger" onclick="enable_burger()">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <img src="../static/images/logo.svg" alt="logo site" class="header header__logo">
-        </a>
+            <a href="/">
+                <img src="../static/images/logo.svg" alt="logo site" class="header header__logo">
+            </a>
+        </div>
 
         <nav class="header header__nav">
             <div>
@@ -92,7 +92,7 @@
             </div>
         </nav>
         <div class="header header__function">
-            <button id="button-form" class="btn btn__profile" onclick="openForm()"><img src="../static/images/profile.svg" alt="profile logo"></button>
+            <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/profile.svg" alt="profile logo"></button>
             <button type="button" class="btn" onclick=""><img src="../static/images/cart.svg" alt="cart logo"></button>
         </div>
     </header>

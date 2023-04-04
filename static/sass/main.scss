@@ -195,17 +195,6 @@ $color-primary:#9AD5BC;
   }
 }
 
-.carousel-item{
-  min-height: 280px;
-  max-height: calc(100vh - 60px);
-  div {
-    border: 2px solid black;
-    width: 50px;
-    height: 10px;
-  }
-}
-
-// div element to hide and seek the body
 #login-box-blur{
 
   z-index: 4;
@@ -231,6 +220,13 @@ $color-primary:#9AD5BC;
   box-shadow: 0 15px 25px $color-primary;
   border-radius: 10px;
   font-family: 'Montserrat';
+}
+
+#login-box.show {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .login-box h2 {
@@ -317,6 +313,9 @@ $color-primary:#9AD5BC;
   text-decoration: none;
 }
 
+.to_blur {
+  filter: blur(1.5px);
+}
 
 .mobile-only {
   &__nav {
@@ -325,8 +324,10 @@ $color-primary:#9AD5BC;
   width: 100vw;
   top: 0;
   padding: 70px 0;
+
   display: flex;
   flex-direction: column;
+
   height: 100%;
   background-color: $color-primary;
   z-index: 1;
@@ -404,7 +405,6 @@ $color-primary:#9AD5BC;
 
   p {
     font-size: 1em;
-    //margin-bottom: 50px;
   }
 
   a {
@@ -438,4 +438,49 @@ $color-primary:#9AD5BC;
       justify-self: end;
     }
   }
+}
+
+// ---------------------------------------
+// ---- style for the index page ---------
+// ---------------------------------------
+
+
+.carousel-item{
+  min-height: 280px;
+  max-height: calc(100vh - 60px);
+  div {
+    border: 2px solid black;
+    width: 50px;
+    height: 10px;
+  }
+}
+// ---------------------------------------
+// ---- style for the register page ------
+// ---------------------------------------
+
+.main-register {
+  border: black solid 1px;
+
+  display: flex;
+  flex-direction: column;
+
+
+  .main-register__form {
+    border: black solid 1px;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  input {
+    padding: 15px;
+    width: 40vw;
+    font-family: 'Jura';
+  }
+
 }
