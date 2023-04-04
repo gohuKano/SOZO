@@ -1,3 +1,9 @@
+# TODO : 
+# quand le client est connecté, lui faire comprendre
+# en changeant l'icone de connexion ou autre methode
+# lorsqu'il est connecté, lui offrir la possibilité 
+# de voir les settings ( adresse, ... ) de son compte.
+
 from flask import Flask, render_template, request
 import psycopg2
 
@@ -65,13 +71,15 @@ def form_client_sinscrire():
         return render_template("index.html", alert_message="An error occurred. Please try again later.")
 
 
-@app.route("/form_client_se_connecter", methods=["POST"])
-def form_client_se_connecter():
+@app.route("/se_connecter", methods=["POST"])
+def se_connecter():
 
     try:
         # getting data from the user
         email = request.form.get("e-mail")
         password = request.form.get("password")
+
+        print(email, password)
 
         # connecting to the database
         conn = get_db_connection()
@@ -96,6 +104,11 @@ def form_client_se_connecter():
     except Exception as e:
         print(e)
         return render_template("index.html", alert_message="An error occurred. Please try again later.")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
