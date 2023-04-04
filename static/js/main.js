@@ -2,7 +2,6 @@ const button_form = document.getElementById("button-form");
 const login_box = document.getElementById("login-box");
 const login_box_blur = document.getElementById("login-box-blur");
 const to_blur = document.querySelectorAll(".to-blur");
-// const header = document.getElementById("header");
 
 function openForm() {
     for (let i = 0; i < to_blur.length; i++) {
