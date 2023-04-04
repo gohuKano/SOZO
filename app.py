@@ -29,67 +29,68 @@ def get_db_connection():
 
 @app.route("/register")
 def register():
-
     return render_template("register.html")
 
-    # if request.method == "POST":
-    #     try:
-    #         # connecting to the database
-    #         conn = get_db_connection()
-    #         cur = conn.cursor()
-    #         print("Connected to the database !")
+@app.route("/register_process", methods=["POST"])
+def register_process():
+    # testing if the method is POST
+    if request.method == "POST":
+        try:
+            # get info from the user
+            genre = request.form.get("genre") 
+            prenom = request.form.get("prenom")
+            nom = request.form.get("nom")
+            email = request.form.get("e-mail")
+            confirm_email = request.form.get("confirm-email")
+            password = request.form.get("password")
+            confirm_password = request.form.get("confirm-password")
+            print(genre, prenom, nom, email, confirm_email, password, confirm_email, confirm_password)
 
-    #         # get info from the user
-    #         prenom = request.form.get('prenom')
-    #         nom = request.form.get('nom')
-    #         email = request.form.get("e-mail")
-    #         password = request.form.get("password")
-    #         print(prenom, nom, email, password)
+            # interacting with the database : 
+            # # check if the email already exists in the database
+            # cur.execute(
+            #     'SELECT email FROM accounts WHERE email = %s',
+            #     (email,)
+            # )
+            # existing_email = cur.fetchone()
 
-    #         # check if the email already exists in the database
-    #         cur.execute(
-    #             'SELECT email FROM accounts WHERE email = %s',
-    #             (email,)
-    #         )
-    #         existing_email = cur.fetchone()
+            # if existing_email:
+            #     # display alert message
+            #     print("This email is already registered.")
+            #     return render_template(
+            #                 "register.html",
+            #                 alert_message="This email is already registered."
+            #             )
+            # else:
+            #     # write into the database
+            #     cur.execute(
+            #         'INSERT INTO accounts (prenom, nom, password, email)'
+            #         'VALUES (%s, %s, %s, %s)',
+            #         (
+            #             prenom,
+            #             nom,
+            #             password,
+            #             email
+            #         )
+            #     )
+            #     conn.commit()
+            #     print("Data wrote into the database !")
+            #     return render_template(
+            #                 "register.html",
+            #                 alert_message="Account created successfully."
+            #             )
+            
+            return render_template("register.html")
 
-    #         if existing_email:
-    #             # display alert message
-    #             print("This email is already registered.")
-    #             return render_template(
-    #                         "register.html",
-    #                         alert_message="This email is already registered."
-    #                     )
-    #         else:
-    #             # write into the database
-    #             cur.execute(
-    #                 'INSERT INTO accounts (prenom, nom, password, email)'
-    #                 'VALUES (%s, %s, %s, %s)',
-    #                 (
-    #                     prenom,
-    #                     nom,
-    #                     password,
-    #                     email
-    #                 )
-    #             )
-    #             conn.commit()
-    #             print("Data wrote into the database !")
-    #             return render_template(
-    #                         "register.html",
-    #                         alert_message="Account created successfully."
-    #                     )
+        except Exception as e:
+            print(e)
+            return render_template(
+                        "register.html",
+                        alert_message="An error occurred. Please try again later."
+                )
+    else: 
+        return render_template("register.html")
 
-    #     except Exception as e:
-    #         print(e)
-    #         return render_template(
-    #                     "register.html",
-    #                     alert_message="An error occurred. Please try again later."
-    #             )
-    # else: 
-    #     return render_template("register.html")
-
-# @app.route("/register_process", methods=["POST"])
-# def 
 
 @app.route("/login", methods=["POST"])
 def login():
