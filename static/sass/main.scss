@@ -104,7 +104,6 @@ $color-primary:#9AD5BC;
       &:hover .header__nav__container__text::before {
         width: 100%;
         background-color: $color-primary;
-        
       }
       &__text {
         position: relative;
@@ -383,4 +382,60 @@ $color-primary:#9AD5BC;
   top: 0;
   width: 0%;
   left: 0;
+}
+
+// ---------------------------------------
+// ------- handling the 404 error --------
+// ---------------------------------------
+.error-container {
+  margin: 20vh auto;
+  text-align: center;
+  height: 40vh;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1em;
+    //margin-bottom: 50px;
+  }
+
+  a {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+
+    &:hover {
+      color: darken($color-primary, 30);
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+    &:hover{ 
+      .header__nav__line{
+        transform: scaleX(-100%);
+        transition: transform 400ms;
+        }
+      }
+    
+    .header__nav__line {
+      transform: scaleX(0%);
+      transition: transform 400ms 200ms;
+      height: 2px;
+      background-color: darken($color-primary, 20%);
+      justify-self: end;
+    }
+  }
 }

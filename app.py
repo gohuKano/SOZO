@@ -1,3 +1,9 @@
+# TODO : 
+# quand le client est connecté, lui faire comprendre
+# en changeant l'icone de connexion ou autre methode
+# lorsqu'il est connecté, lui offrir la possibilité 
+# de voir les settings ( adresse, ... ) de son compte.
+
 from flask import Flask, render_template, request
 import psycopg2
 
@@ -17,8 +23,8 @@ def get_db_connection():
     )
     return conn
 
-@app.route("/form_client_sinscrire", methods = ["POST"])
-def form_client_sinscrire():
+@app.route("/register")
+def register():
 
     try:
         # connecting to the database
@@ -43,7 +49,10 @@ def form_client_sinscrire():
         if existing_email:
             # display alert message
             print("This email is already registered.")
-            return render_template("index.html", alert_message="This email is already registered.")
+            return render_template(
+                        "register.html",
+                        alert_message="This email is already registered."
+                    )
         else:
             # write into the database
             cur.execute(
@@ -58,20 +67,28 @@ def form_client_sinscrire():
             )
             conn.commit()
             print("Data wrote into the database !")
-            return render_template("index.html", alert_message="Account created successfully.")
+            return render_template(
+                        "register.html",
+                         alert_message="Account created successfully."
+                    )
 
     except Exception as e:
         print(e)
-        return render_template("index.html", alert_message="An error occurred. Please try again later.")
+        return render_template(
+                    "register.html",
+                    alert_message="An error occurred. Please try again later."
+                )
 
 
-@app.route("/form_client_se_connecter", methods=["POST"])
-def form_client_se_connecter():
+@app.route("/login", methods=["POST"])
+def login():
 
     try:
         # getting data from the user
         email = request.form.get("e-mail")
         password = request.form.get("password")
+
+        print(email, password)
 
         # connecting to the database
         conn = get_db_connection()
@@ -87,15 +104,29 @@ def form_client_se_connecter():
         if user:
             # display alert message
             print("Logged in successfully.")
-            return render_template("index.html", alert_message="Logged in successfully.")
+            return render_template(
+                    "login.html", 
+                    alert_message="Logged in successfully."
+                )
         else:
             # display alert message
             print("Invalid email or password.")
-            return render_template("index.html", alert_message="Invalid email or password.")
+            return render_template(
+                        "index.html",
+                        alert_message="Invalid email or password."
+                    )
 
     except Exception as e:
         print(e)
-        return render_template("index.html", alert_message="An error occurred. Please try again later.")
+        return render_template(
+                "index.html",
+                alert_message="An error occurred. Please try again later."
+                )
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
