@@ -40,11 +40,11 @@ def register_process():
             genre = request.form.get("genre") 
             prenom = request.form.get("prenom")
             nom = request.form.get("nom")
-            email = request.form.get("e-mail")
+            email = request.form.get("email")
             confirm_email = request.form.get("confirm-email")
             password = request.form.get("password")
             confirm_password = request.form.get("confirm-password")
-            print(genre, prenom, nom, email, confirm_email, password, confirm_email, confirm_password)
+            print(genre, prenom, nom, email, confirm_email, password, confirm_password)
 
             # interacting with the database : 
             # # check if the email already exists in the database
