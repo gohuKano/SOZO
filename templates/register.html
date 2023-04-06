@@ -53,27 +53,27 @@
                 </div>
 
                 <div class="register__box__input">
-                    <input class="main-register__form__field" type="text" name="email" required>
+                    <input id="border-email" class="main-register__form__field" type="text" name="email" required>
                     <label>E-mail *</label>
                 </div>
 
                 <div class="register__box__input">
-                    <input class="main-register__form__field" type="text" name="confirm-email" required>
+                    <input id="border-confirm-email" class="main-register__form__field" type="text" name="confirm-email" required>
                     <label>Confirmer e-mail *</label>
                 </div>
 
                 <div class="register__box__input">
-                    <input class="main-register__form__field" type="password" name="password" required>
+                    <input id="border-password" class="main-register__form__field" type="password" name="password-register" required>
                     <label>Mot de passe *</label>
                 </div>
 
                 <div class="register__box__input">
-                    <input class="main-register__form__field" type="password" name="confirm-password" required>
+                    <input id="border-confirm-password" class="main-register__form__field" type="password" name="confirm-password" required>
                     <label>Confirmer mot de passe *</label>
                 </div>
                                         
                 <div class="register__box__input--btn">
-                    <input type="submit" id="submit" value="S'INSCRIRE">
+                    <input type="submit" id="submit-register" value="S'INSCRIRE">
                 </div>
 
             </form>
@@ -83,6 +83,7 @@
 
     {{ render_footer() }}
 
+    <script src="../static/js/register.js"></script>
     <script src="../static/js/main.js"></script>
 </body>
 </html>

@@ -44,5 +44,3 @@ document.addEventListener("mousewheel", function(event){
         header.classList.add("hide");
   }
 })
-
-

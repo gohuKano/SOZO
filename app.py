@@ -49,6 +49,7 @@ def register_process():
             confirm_email = request.form.get("confirm-email")
             password = request.form.get("password")
             confirm_password = request.form.get("confirm-password")
+            
             print(prenom, nom, email, confirm_email, password, confirm_password)
 
             # interacting with the database : 
