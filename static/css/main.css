@@ -15,7 +15,24 @@
   box-sizing: border-box;
 }
 
+body.show {
+  overflow: hidden;
+}
+
+#header.hide {
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
 .header {
+  transform: translateY(0);
+  transition: transform 0.3s;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  z-index: 3;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,7 +47,6 @@
   display: none;
   width: 30px;
   height: 30px;
-  position: absolute;
   margin-right: 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -74,6 +90,10 @@
   top: 20px;
 }
 .header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 50vw;
   text-decoration: none;
   font-size: 1.2em;
@@ -131,9 +151,6 @@
 .header--SOZO {
   font-size: 40px;
 }
-.header__function {
-  justify-content: space-between;
-}
 .header__function img {
   height: 25px;
   transition: transform 200ms;
@@ -143,9 +160,6 @@
   transition: transform 200ms;
 }
 @media (max-width: 700px) {
-  .header {
-    z-index: 3;
-  }
   .header__logo {
     display: none;
   }
@@ -157,7 +171,9 @@
   }
   .header__nav {
     width: auto;
-    padding-left: 100px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
   }
   .header__nav__container__text--notSOZO {
     display: none;
@@ -167,48 +183,76 @@
   }
 }
 
-#login-box-blur {
-  z-index: 4;
+.login-box-blur {
+  z-index: 3;
   opacity: 0;
-  display: none;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
   height: 100%;
   width: 100%;
-  position: absolute;
   background-color: #242026;
+}
+.login-box-blur.show {
+  visibility: visible;
+  opacity: 0.6;
+  transition: visibility 0s linear 0s, opacity 0.3s ease-in-out;
+}
+
+.to-blur {
+  filter: blur(0px);
+}
+.to-blur.show {
+  filter: blur(1.5px);
 }
 
 .login-box {
-  display: none;
-  z-index: 5;
+  visibility: hidden;
+  z-index: 4;
   position: fixed;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
   top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
   background: #242026;
+  box-shadow: 0 15px 25px #9AD5BC;
   border-radius: 10px;
   font-family: "Montserrat";
 }
-
-#login-box.show {
+.login-box.show {
+  visibility: visible;
+  opacity: 1;
   position: fixed;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0s;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
 }
-
 .login-box h2 {
   margin: 0 0 30px;
   padding: 0;
   color: #fff;
   text-align: center;
 }
-
 .login-box .user-box label {
   margin-top: -20px;
+  position: relative;
+  left: 0;
+  top: -60px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
 }
-
 .login-box .user-box input {
   position: relative;
   width: 100%;
@@ -220,17 +264,6 @@
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
-}
-
-.login-box .user-box label {
-  position: relative;
-  left: 0;
-  top: -60px;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: 0.5s;
 }
 
 .login-box .user-box input:focus ~ label,
@@ -282,11 +315,8 @@
   text-decoration: none;
 }
 
-.to_blur {
-  filter: blur(1.5px);
-}
-
 .mobile-only__nav {
+  z-index: 2;
   position: fixed;
   left: 0;
   width: 100vw;
@@ -296,14 +326,12 @@
   flex-direction: column;
   height: 100%;
   background-color: #9AD5BC;
-  z-index: 1;
   align-items: stretch;
   gap: 2rem;
   transform: translateX(-100%);
   transition: all 0.2s;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   opacity: 0.9;
-  padding-left: 3%;
 }
 .mobile-only__nav-open {
   transform: translateX(0%);
@@ -327,21 +355,18 @@
   width: 0%;
   left: 0;
 }
-
 #burger.open span:nth-child(2) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
 #burger.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-
 #burger.open span:nth-child(4) {
   top: 0;
   width: 0%;

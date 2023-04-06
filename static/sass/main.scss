@@ -16,24 +16,38 @@ $color-primary:#9AD5BC;
   src: url("../fonts/Jura/static/Jura-SemiBold.ttf") format("woff2");
 }
 
-@mixin flex($direction) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: space-between;
-  align-items: center;
-}
   
 * {
   text-decoration: none;
   box-sizing: border-box;
 }
 
+body {
+  &.show {
+    overflow: hidden;
+  }
+}
+
+#header.hide {
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
 .header {
-  display: flex;
+  transform: translateY(0);
+  transition: transform 0.3s;
+  position:fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display:flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: $color-primary;
+
 
   &__logo {
     height: 60px;
@@ -44,7 +58,6 @@ $color-primary:#9AD5BC;
     display: none;
     width: 30px;
     height: 30px;
-    position: absolute;
     margin-right: 0;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -90,6 +103,10 @@ $color-primary:#9AD5BC;
   }
 
   &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 50vw;
     text-decoration: none;
     font-size: 1.2em;
@@ -157,7 +174,6 @@ $color-primary:#9AD5BC;
     }
 
   &__function {
-    justify-content: space-between;
     img {
       height: 25px;
       transition: transform 200ms;
@@ -169,7 +185,7 @@ $color-primary:#9AD5BC;
   }
 
   @media (max-width:700px) {
-    z-index: 3;
+
     &__logo {
       display: none;
     }
@@ -181,7 +197,9 @@ $color-primary:#9AD5BC;
     }
     &__nav {
       width:auto;
-      padding-left: 100px;
+      position: fixed;
+      left: 50%;
+      transform: translate(-50%);
       &__container__text--notSOZO {
       display: none;
       
@@ -195,73 +213,91 @@ $color-primary:#9AD5BC;
   }
 }
 
-#login-box-blur{
+.login-box-blur{
 
-  z-index: 4;
+  z-index: 3;
   opacity: 0;
-  display: none;
-
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  transition:visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
   height: 100%;
   width: 100%;
-  position: absolute;
   background-color: #242026;
+  &.show {
+    visibility: visible;
+    opacity: 0.6;
+    transition:visibility 0s linear 0s, opacity 0.3s ease-in-out;
+  }
+}
+
+.to-blur {
+  filter: blur(0px);
+  &.show {
+    filter: blur(1.5px);
+  }
 }
 
 .login-box {
-  display:none;
-  z-index: 5;
+  visibility: hidden;
+  z-index: 4;
   position: fixed;
+  opacity: 0;
+  transition:visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
   top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
   background: #242026;
-  // box-shadow: 0 15px 25px $color-primary;
+  box-shadow: 0 15px 25px $color-primary;
   border-radius: 10px;
   font-family: 'Montserrat';
-}
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0s;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
 
-#login-box.show {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.login-box h2 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-}
-
-.login-box .user-box label {
-  margin-top: -20px;
-}
-
-.login-box .user-box input {
-  position: relative;
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-
-.login-box .user-box label {
-  position: relative;
-  left: 0;
-  top: -60px;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
+  h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  .user-box {
+    label {
+      margin-top: -20px;
+      position: relative;
+      left: 0;
+      top: -60px;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+    input {
+      position: relative;
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+  }
 }
 
 .login-box .user-box input:focus~label,
@@ -313,13 +349,10 @@ $color-primary:#9AD5BC;
   text-decoration: none;
 }
 
-.to_blur {
-  filter: blur(1.5px);
-}
-
 .mobile-only {
   &__nav {
-  position: fixed;
+  z-index: 2;
+  position:fixed;
   left: 0;
   width: 100vw;
   top: 0;
@@ -330,14 +363,12 @@ $color-primary:#9AD5BC;
 
   height: 100%;
   background-color: $color-primary;
-  z-index: 1;
   align-items: stretch;
   gap: 2rem;
   transform: translateX(-100%);
   transition: all 0.2s;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   opacity: 0.9;
-  padding-left: 3%;
 }
 
 &__nav-open {
@@ -359,32 +390,30 @@ $color-primary:#9AD5BC;
   font-family: 'Jura';
 }}
 
-#burger.open span:nth-child(1) {
-  top: 0px;
-  width: 0%;
-  left: 0;
+#burger.open span{
+  &:nth-child(1){
+    top: 0px;
+    width: 0%;
+    left: 0;
+  }
+  &:nth-child(2){
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  &:nth-child(3){
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  &:nth-child(4){
+    top: 0;
+    width: 0%;
+    left: 0;
+  } 
 }
-
-#burger.open span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-#burger.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-#burger.open span:nth-child(4) {
-  top: 0;
-  width: 0%;
-  left: 0;
-}
-
 // ---------------------------------------
 // ------- handling the 404 error --------
 // ---------------------------------------
