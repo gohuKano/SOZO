@@ -28,7 +28,7 @@ body.show {
   transform: translateY(0);
   transition: transform 0.3s cubic-bezier(0.9, 1.33, 0.51, 0.9);
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   top: 0;
   left: 0;
@@ -420,7 +420,7 @@ body.show {
   position: relative;
   top: 60px;
   min-height: 280px;
-  max-height: calc(100vh - 60px);
+  max-height: 1000px;
 }
 .carousel-item div {
   border: 2px solid black;
@@ -428,20 +428,21 @@ body.show {
   height: 10px;
 }
 
-.section-register {
+.register {
   font-family: "Jura";
   margin-top: 80px;
 }
-.section-register .text-register {
+.register__text {
   position: relative;
   padding-left: 2%;
 }
 @media (max-width: 700px) {
-  .section-register .text-register {
+  .register__text {
     width: 80vw;
   }
 }
-.section-register .register-box {
+.register__box {
+  margin: 50px 0;
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -450,13 +451,13 @@ body.show {
   color: black;
   font-family: "Montserrat";
 }
-.section-register .register-box h2 {
-  margin: 0 0 30px;
-  padding: 0;
+.register__box h2 {
+  font-size: 3em;
+  padding-bottom: 30px;
   color: black;
   text-align: center;
 }
-.section-register .register-box .user-box label {
+.register__box__input label {
   position: relative;
   top: -80px;
   left: 0;
@@ -466,7 +467,7 @@ body.show {
   pointer-events: none;
   transition: 0.5s;
 }
-.section-register .register-box .user-box input {
+.register__box__input input {
   position: relative;
   width: 100%;
   padding: 10px 0;
@@ -478,8 +479,16 @@ body.show {
   outline: none;
   background: transparent;
 }
+.register__box__input--btn {
+  display: flex;
+  align-items: center;
+}
+.register__box__input--btn input {
+  padding: 20px 50px !important;
+  font-size: 1.5em !important;
+}
 @media (max-width: 700px) {
-  .section-register .register-box {
+  .register__box {
     width: 80vw;
   }
 }
@@ -496,11 +505,26 @@ body.show {
   padding: 50px 0;
   background-color: #1a1a1a;
   margin: 0;
-  height: 33vh;
+  height: auto;
   font-family: "Jura";
   display: flex;
   justify-content: space-between;
   color: #FFF;
+}
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: auto;
+  }
+  .footer > * {
+    height: auto;
+    width: auto !important;
+  }
+  .footer__middle ul li a {
+    text-decoration: underline !important;
+  }
 }
 .footer h2 {
   padding: 20px 0;
@@ -509,6 +533,7 @@ body.show {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 33vw;
 }
 .footer__middle {
@@ -528,6 +553,9 @@ body.show {
 .footer__middle ul li a {
   text-decoration: none;
   color: #fff;
+}
+.footer__middle ul li a:hover {
+  text-decoration: underline;
 }
 .footer__right {
   display: flex;
