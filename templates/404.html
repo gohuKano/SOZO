@@ -1,5 +1,5 @@
-{% from "./helpers/header.html" import render_header %}
-{% from "./helpers/footer.html" import render_footer %}
+{% from "/helpers/header.html" import render_header %}
+{% from "/helpers/footer.html" import render_footer %}
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,7 +44,7 @@
 
     </section>
 
-    {{ render_footer }}
+    {{ render_footer() }}
 
     <script src="../static/js/main.js"></script>
 </body>
