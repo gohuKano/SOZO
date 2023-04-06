@@ -493,8 +493,8 @@ body.show {
   }
 }
 
-.register-box .user-box input:focus ~ label,
-.register-box .user-box input:valid ~ label {
+.register__box .register__box__input input:focus ~ label,
+.register__box .register__box__input input:valid ~ label {
   top: -100px;
   left: 0;
   color: #307357;
