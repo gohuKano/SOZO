@@ -473,10 +473,28 @@ body.show {
 }
 
 .footer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  display: flex;
+  justify-content: space-between;
+}
+.footer__grid--left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33vw;
+}
+.footer__grid--middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33vw;
+}
+.footer__grid--right {
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+}
+.footer__grid--right ul li a svg {
+  height: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */

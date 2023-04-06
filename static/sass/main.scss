@@ -545,8 +545,28 @@ body {
 }
 
 .footer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  display: flex;
+  justify-content: space-between;
+  &__grid {
+    &--left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 33vw;
+    }
+    &--middle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 33vw;
+    }
+    &--right {
+      display: flex;
+      flex-direction: column;
+      width: 33vw;
+      ul li a svg{
+        height: 50px;
+      }
+    }
+  }
 }
