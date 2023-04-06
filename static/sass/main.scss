@@ -1,4 +1,4 @@
-$color-primary:#9AD5BC;
+$color-primary:#6168a2;
 
 @font-face {
   font-family: 'Montserrat';
@@ -491,6 +491,7 @@ body {
 
   font-family: "Jura";
   margin-top: 80px;
+
   &__text{
     position: relative;
     padding-left: 2%;
@@ -525,16 +526,17 @@ body {
         left: 0;
         padding: 10px 0;
         font-size: 16px;
-        color: black;
+        color: darken($color-primary, 10);
         pointer-events: none;
         transition: .5s;
       }
+
       input {
         position: relative;
         width: 100%;
         padding: 10px 0;
         font-size: 16px;
-        color: darken($color-primary, 40);
+        color: darken($color-primary, 10);
         margin-bottom: 30px;
         border: none;
         border-bottom: 1.5px solid black;

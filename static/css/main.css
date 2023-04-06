@@ -37,7 +37,7 @@ body.show {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #9AD5BC;
+  background-color: #6168a2;
 }
 .header__logo {
   height: 60px;
@@ -109,7 +109,7 @@ body.show {
 }
 .header__nav__container:hover .header__nav__container__text::before {
   width: 100%;
-  background-color: #9AD5BC;
+  background-color: #6168a2;
 }
 .header__nav__container__text {
   position: relative;
@@ -140,7 +140,7 @@ body.show {
   transform: scaleX(0%);
   transition: transform 400ms 200ms;
   height: 2px;
-  background-color: #76c6a4;
+  background-color: #4d5383;
   justify-self: end;
 }
 .header a {
@@ -222,7 +222,7 @@ body.show {
   padding: 40px;
   transform: translate(-50%, -50%);
   background: #242026;
-  box-shadow: 0 15px 25px #9AD5BC;
+  box-shadow: 0 15px 25px #6168a2;
   border-radius: 10px;
   font-family: "Montserrat";
 }
@@ -270,7 +270,7 @@ body.show {
 .login-box .user-box input:valid ~ label {
   top: -85px;
   left: 0;
-  color: #9AD5BC;
+  color: #6168a2;
   font-size: 12px;
 }
 
@@ -289,9 +289,9 @@ body.show {
 }
 
 #submit:hover {
-  background: #52b78c;
+  background: #3a3f63;
   color: #fff;
-  box-shadow: 0 0 2px #9AD5BC, 0 0 25px, 0 0 50px #9AD5BC, 0 0 100px #9AD5BC;
+  box-shadow: 0 0 2px #6168a2, 0 0 25px, 0 0 50px #6168a2, 0 0 100px #6168a2;
 }
 
 .button-form {
@@ -325,7 +325,7 @@ body.show {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #9AD5BC;
+  background-color: #6168a2;
   align-items: stretch;
   gap: 2rem;
   transform: translateX(-100%);
@@ -397,7 +397,7 @@ body.show {
   font-size: 1.2em;
 }
 .error-container a:hover {
-  color: #3f9772;
+  color: #272a43;
 }
 .error-container div {
   display: flex;
@@ -412,7 +412,7 @@ body.show {
   transform: scaleX(0%);
   transition: transform 400ms 200ms;
   height: 2px;
-  background-color: #52b78c;
+  background-color: #3a3f63;
   justify-self: end;
 }
 
@@ -463,7 +463,7 @@ body.show {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: black;
+  color: #4d5383;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -472,7 +472,7 @@ body.show {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #307357;
+  color: #4d5383;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1.5px solid black;
@@ -497,7 +497,7 @@ body.show {
 .register__box .register__box__input input:valid ~ label {
   top: -100px;
   left: 0;
-  color: #307357;
+  color: #141623;
   font-size: 15px;
 }
 
