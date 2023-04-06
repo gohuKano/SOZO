@@ -1,3 +1,6 @@
+{% from "./helpers/header.html" import render_header %}
+{% from "./helpers/footer.html" import render_footer %}
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,102 +20,8 @@
 
 <body style="height: 300vh;">
     
-    <!-- form -->
-    <section>
-        <!-- div element to hide the website -->
-        <div class="login-box-blur" id="login-box-blur"></div>
+    {{ render_header() }}
 
-        <div id="login-box" class="login-box">
-            <h2>Login</h2>
-            <form method="POST" action="login">
-                <div class="user-box">
-                    <input type="text" id="" name="e-mail" required="">
-                    <label>E-mail</label>
-                </div>
-                
-                <div class="user-box">
-                    <input type="password" name="password" required="">
-                    <label>Mot de passe</label>
-                </div>
-    
-                <div class="button-form">
-    
-                    <input type="submit" id="submit" value="Valider">
-    
-                    <div id="register">
-                        Pas encore de compte ?
-                        <a href="{{ url_for('register')}}">S'inscrire</a>
-                    </div>
-    
-                </div>
-            </form>
-        </div>
-    </section>
-    <!----------------------------------------->
-    <!--------------- Header ------------------>
-    <!----------------------------------------->
-    <header id="header" class="header to-blur">
-        <div>
-            <div id="burger" class="header header__burger" onclick="enable_burger()">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <a href="/">
-                <img src="../static/images/logo.svg" alt="logo site" class=" header__logo">
-            </a>
-        </div>
-
-        <nav class=" header__nav">
-            <div>
-                <span class="header__nav__container">
-                    <a href="#ocean" data-text="Océan" class="header__nav__container__text header__nav__container__text--notSOZO ">Ωκεανός</a>
-                </span>
-                <span class="header__nav__line"></span>
-            </div>
-            <div>
-                <span class="header__nav__container">
-                    <a href="#animal"data-text="Animal" class="header__nav__container__text header__nav__container__text--notSOZO">‎ ‎ ‎ Ζώο ‎ ‎ ‎ </a>
-                </span>
-                <span class="header__nav__line"></span>
-            </div>
-            <a href="/" class=" header__nav__container__text header__nav__container__text--SOZO">SOZO</a>
-            <div>
-                <span class="header__nav__container">
-                    <a href="#foret"data-text="Forêt" class="header__nav__container__text header__nav__container__text--notSOZO">Δάσος</a>
-                </span>
-                <span class="header__nav__line"></span>
-            </div>
-            <div>
-                <span class="header__nav__container">
-                    <a href="#montagne"data-text="Montagne" class="header__nav__container__text header__nav__container__text--notSOZO">‎ ‎ ‎ βουνό ‎ ‎ ‎ ‎ ‎ </a>
-                </span class="container-test">
-                <span class="header__nav__line"></span>
-            </div>
-        </nav>
-        <div class="header__function">
-            <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/profile.svg" alt="profile logo"></button>
-            <button type="button" class="btn" onclick=""><img src="../static/images/cart.svg" alt="cart logo"></button>
-        </div>
-    </header>
-
-    <div class="mobile-only">
-        <nav class="mobile-only__nav" id="mobile-only__nav">
-            <li>
-                <a href="#">Océan</a>
-            </li>
-            <li>
-                <a href="#">Animal</a>
-            </li>
-            <li>
-                <a href="#">Forêt</a>
-            </li>
-            <li>
-                <a href="#">Montagne</a>
-            </li>
-        </nav>
-    </div>
     <!----------------------------------------->
     <!----------------- Main ------------------>
     <!----------------------------------------->
@@ -155,14 +64,14 @@
     </main>
 
     <footer class="footer">
-        <div class="footer__grid--left">
+        <div class="column">
             <h2>Besoin d'aide ?<br>Contactez nous:</h2>
             <p>Tel: +33 (0)7 64 52 45 55</p>
             <p>Email: Groschibre@gourmande.fr</p>
             <p>Du lundi au vendredi</p>
             <p>De 9h à 18h</p>
         </div>
-        <div class="footer__grid--middle">
+        <div class="column">
             <h2>Support</h2>
             <li>
                 <a href="#">Plan du site</a>
@@ -180,7 +89,7 @@
                 <a href="#">Politique de confidentialité</a>
             </li>
         </div>
-        <div class="footer__grid--right">
+        <div class="column">
             <h2>A propos de nous:</h2>
             <p>Nous sommes une marque de vêtements spécialisée dans la mode écologique de haute qualité. Notre mission est de créer des vêtements à la fois élégants et durables.</p>
             <h2>Suivez nous</h2>
