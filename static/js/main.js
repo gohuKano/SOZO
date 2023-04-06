@@ -39,10 +39,8 @@ const enable_burger = (e) => {
 
 document.addEventListener("mousewheel", function(event){
     if(event.wheelDelta > 0){
-        console.log("up")
         header.classList.remove("hide");
   } else {
-        console.log("down")
         header.classList.add("hide");
   }
 })
