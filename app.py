@@ -8,6 +8,9 @@
 # ajouter l'annimation dans le register.html lorsque
 # le user client sur un input ( cf. voir site stone island )
 
+# TODO :
+# Mettre à la taille les images du caca
+
 from flask import Flask, render_template, request
 import psycopg2
 

@@ -17,10 +17,10 @@
 
 
 <body>
-    <!-- div element to hide the website -->
-    <div id="login-box-blur"></div>
-    <!-- form -->
     <section>
+        <!-- div element to hide the website -->
+        <div class="login-box-blur" id="login-box-blur"></div>
+
         <div id="login-box" class="login-box">
             <h2>Login</h2>
             <form method="POST" action="login">
@@ -50,18 +50,20 @@
     <!----------------------------------------->
     <!--------------- Header ------------------>
     <!----------------------------------------->
-    <header class="header to-blur">
-        <a href = "/">
-            <div id="burger" class="header header__burger" onclick="enable()">
+    <header id="header" class="header to-blur">
+        <div>
+            <div id="burger" class="header header__burger" onclick="enable_burger()">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <img src="../static/images/logo.svg" alt="logo site" class="header header__logo">
-        </a>
+            <a href="/">
+                <img src="../static/images/logo.svg" alt="logo site" class=" header__logo">
+            </a>
+        </div>
 
-        <nav class="header header__nav">
+        <nav class=" header__nav">
             <div>
                 <span class="header__nav__container">
                     <a href="#ocean" data-text="Océan" class="header__nav__container__text header__nav__container__text--notSOZO ">Ωκεανός</a>
@@ -74,7 +76,7 @@
                 </span>
                 <span class="header__nav__line"></span>
             </div>
-            <a href="/" class="header header__nav__container__text header__nav__container__text--SOZO">SOZO</a>
+            <a href="/" class=" header__nav__container__text header__nav__container__text--SOZO">SOZO</a>
             <div>
                 <span class="header__nav__container">
                     <a href="#foret"data-text="Forêt" class="header__nav__container__text header__nav__container__text--notSOZO">Δάσος</a>
@@ -88,7 +90,7 @@
                 <span class="header__nav__line"></span>
             </div>
         </nav>
-        <div class="header header__function">
+        <div class="header__function">
             <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/profile.svg" alt="profile logo"></button>
             <button type="button" class="btn" onclick=""><img src="../static/images/cart.svg" alt="cart logo"></button>
         </div>
