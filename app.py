@@ -7,6 +7,8 @@
 # TODO :
 # ajouter l'annimation dans le register.html lorsque
 # le user client sur un input ( cf. voir site stone island )
+# verifier les données rentrer par l'utilisateur : safemark
+# pour eviter les attaques par injections
 
 # TODO :
 # Mettre à la taille les images du caca
