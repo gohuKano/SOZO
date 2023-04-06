@@ -42,14 +42,14 @@ def register_process():
     if request.method == "POST":
         try:
             # get info from the user
-            genre = request.form.get("genre") 
+            # genre = request.form.get("genre")
             prenom = request.form.get("prenom")
             nom = request.form.get("nom")
             email = request.form.get("email")
             confirm_email = request.form.get("confirm-email")
             password = request.form.get("password")
             confirm_password = request.form.get("confirm-password")
-            print(genre, prenom, nom, email, confirm_email, password, confirm_password)
+            print(prenom, nom, email, confirm_email, password, confirm_password)
 
             # interacting with the database : 
             # # check if the email already exists in the database
