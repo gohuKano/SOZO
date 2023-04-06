@@ -428,48 +428,68 @@ body.show {
   height: 10px;
 }
 
-.main-register {
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-}
-.main-register .main-register__form {
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.main-register .main-register__form__field {
-  border: rgb(25, 25, 25) solid 1px;
-  padding: 15px;
-  width: 40vw;
+.section-register {
   font-family: "Jura";
+  margin-top: 80px;
 }
-.main-register .main-register__form__field:focus {
-  border-color: #9AD5BC;
-  border-width: 1.5px;
-  outline: none;
+.section-register .text-register {
+  position: relative;
+  left: 2%;
 }
-.main-register .main-register__form__field[type=submit] {
-  background-color: #52b78c;
-  border: none;
-  color: #fff;
-  padding: 16px 32px;
-  margin: 4px 2px;
+@media (max-width: 700px) {
+  .section-register .text-register {
+    width: 80vw;
+  }
+}
+.section-register .register-box {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50vw;
+  margin-top: 40px;
+  color: black;
+  font-family: "Montserrat";
+}
+.section-register .register-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: black;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.4s ease-in-out;
 }
-.main-register .main-register__form__field[type=submit]:hover {
-  background-color: #3f9772;
+.section-register .register-box .user-box label {
+  position: relative;
+  top: -80px;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.section-register .register-box .user-box input {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #307357;
+  margin-bottom: 30px;
   border: none;
-  color: #fff;
+  border-bottom: 1.5px solid black;
+  outline: none;
+  background: transparent;
+}
+@media (max-width: 700px) {
+  .section-register .register-box {
+    width: 80vw;
+  }
+}
+
+.register-box .user-box input:focus ~ label,
+.register-box .user-box input:valid ~ label {
+  top: -100px;
+  left: 0;
+  color: #307357;
+  font-size: 15px;
 }
 
 .footer {

@@ -22,36 +22,64 @@
 
     {{ render_header() }}
 
-    <main class="main-register">
-        
-        <form method="post" action="register_process" class="main-register__form">
+    <section class="section-register">
+        <div class="text-register">
 
-            <select class="main-register__form__field" id="gender" name="genre" required>
-                <option value="" disabled selected>Genre *</option>
-                <option value="female">Femme</option>
-                <option value="male">Homme</option>
-                <option value="nonbinary">Non-binaire</option>
-                <option value="prefer-not-to-say">Prefere ne pas dire</option>
-                <option value="other">Autre</option>
-            </select>
+            <p>Profitez des avantages de Mon Compte dès maintenant en vous inscrivant.</p>
+            <p>Vous aurez la possibilité de :</p>
 
-            <input class="main-register__form__field" type="text" id="prenom" name="prenom" placeholder="Prénom *" required>
+            <ul>
+                <li>Recevoir notre newsletter exclusive</li>
+                <li>Sauvegarder vos articles favoris</li>
+                <li>Accélérer le processus de paiement lors de vos achats</li>
+                <li>Gérer facilement vos commandes et retours</li>
+            </ul>
 
-            <input class="main-register__form__field" type="text" id="nom" name="nom" placeholder="Nom *" required>            
+        </div>
 
-            <input class="main-register__form__field" type="email" id="email" name="email" placeholder="Email *" required>
-            
-            <input class="main-register__form__field" type="email" id="confirm-email" name="confirm-email" placeholder="Confirmation Email *" required>
-            
-            <input class="main-register__form__field" type="password" id="password" name="password" placeholder="Mot de passe *" required>
-            
-            <input class="main-register__form__field" type="password" id="confirm-password" name="confirm-password" placeholder="Confirmation Mot de passe * " required>
-            
-            <input class="main-register__form__field" type="submit" value="S'INSCRIRE">
+        <div id="register-box" class="register-box">
+            <h2>S'INSCRIRE</h2>
 
-        </form>
+            <form method="POST" action="register">
 
-    </main>
+                <div class="user-box">
+                    <input class="main-register__form__field" type="text" id="prenom" name="prenom" required>
+                    <label>Prenom *</label>
+                </div>
+
+                <div class="user-box">
+                    <input class="main-register__form__field" type="text" name="nom" required>            
+                    <label>Nom *</label>
+                </div>
+
+                <div class="user-box">
+                    <input class="main-register__form__field" type="text"name="email" required>
+                    <label>E-mail *</label>
+                </div>
+
+                <div class="user-box">
+                    <input class="main-register__form__field" type="text" name="confirm_email" required>
+                    <label>Confirmer e-mail *</label>
+                </div>
+
+                <div class="user-box">
+                    <input class="main-register__form__field" type="password" name="password" required>
+                    <label>Mot de passe *</label>
+                </div>
+
+                <div class="user-box">
+                    <input class="main-register__form__field" type="password" name="confirm_password" required>
+                    <label>Confirmer mot de passe *</label>
+                </div>
+                                        
+                <div class="button-form">
+                    <input type="submit" id="submit" value="S'INSCRIRE">
+                </div>
+
+            </form>
+
+        </div>
+    </section>
 
     {{ render_footer() }}
 
