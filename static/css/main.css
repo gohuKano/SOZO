@@ -473,28 +473,61 @@ body.show {
 }
 
 .footer {
+  padding: 50px 0;
+  background-color: #1a1a1a;
+  margin: 0;
+  height: 33vh;
+  font-family: "Jura";
   display: flex;
   justify-content: space-between;
+  color: #FFF;
 }
-.footer__grid--left {
+.footer h2 {
+  padding: 20px 0;
+}
+.footer__left {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 33vw;
 }
-.footer__grid--middle {
+.footer__middle {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 33vw;
 }
-.footer__grid--right {
+.footer__middle ul {
+  padding: 0;
+}
+.footer__middle ul li {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.footer__middle ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+.footer__right {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 33vw;
 }
-.footer__grid--right ul li a svg {
+.footer__right p {
+  width: 75%;
+  text-align: center;
+}
+.footer__right ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+}
+.footer__right ul li a svg {
   height: 50px;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */

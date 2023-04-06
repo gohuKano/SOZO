@@ -545,27 +545,61 @@ body {
 }
 
 .footer {
+  padding: 50px 0;
+  background-color: lighten($color: #000, $amount: 10%);
+  margin: 0;
+  height: 33vh;
+  font-family: 'Jura';
   display: flex;
   justify-content: space-between;
-  &__grid {
-    &--left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 33vw;
+  color: #FFF;
+  h2 {
+    padding: 20px 0;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33vw;
+
+  }
+  &__middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33vw;
+    ul {
+      padding: 0;
+      li {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        a{
+          text-decoration: none;
+          color: #fff;
+        }
+      }
     }
-    &--middle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 33vw;
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33vw;
+    p {
+      width: 75%;
+      text-align: center;
     }
-    &--right {
+    ul {
       display: flex;
-      flex-direction: column;
-      width: 33vw;
-      ul li a svg{
-        height: 50px;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 50%;
+
+      li a svg{
+      height: 50px;
+      color: #fff;
+      
       }
     }
   }
