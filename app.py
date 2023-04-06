@@ -11,7 +11,7 @@
 # pour eviter les attaques par injections
 
 # TODO :
-# Mettre à la taille les images du caca
+# Mettre à la taille les images du gros caca
 
 from flask import Flask, render_template, request
 import psycopg2
