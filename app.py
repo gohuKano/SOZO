@@ -13,6 +13,12 @@
 # TODO :
 # Mettre à la taille les images du gros caca
 
+# TODO :
+# mettre petit bouton pour afficher le mot de passe
+# ajouter bouton pour accpter la politique de confidentialité
+# accepter la newsletter
+# Voir Binance
+
 from flask import Flask, render_template, request
 import psycopg2
 

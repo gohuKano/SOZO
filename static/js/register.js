@@ -40,7 +40,7 @@ passwordInput.addEventListener('input', function() {
     // 1 chifre une minuscule et une majuscule
     // je veux afficher borderPassword.style.borderColor en vert lorsque le
     // mot de passe est fort, en orange lorsque le mot de passe est intermediare
-    // et en rouge lorsque le mot de passe est vert.
+    // et en rouge lorsque le mot de passe est faible.
 
     const password = passwordInput.value;
     const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
@@ -52,11 +52,15 @@ passwordInput.addEventListener('input', function() {
     const hasChiffres = chiffres.test(password);
     const hasMinuscules = minuscules.test(password);
     const hasMajuscules = majuscules.test(password);
+    const hasMinLength = password.length >= 8;
 
-    if (hasCharSpeciaux && hasChiffres && hasMinuscules && hasMajuscules) {
-        console.log("Mot de passe fort !");
+    if (hasCharSpeciaux && hasChiffres && hasMinuscules && hasMajuscules && hasMinLength) {
+        borderPassword.style.borderColor = "green";
+    } else if ((hasCharSpeciaux || hasChiffres || hasMinuscules || hasMajuscules) && password.length >= 8) {
+        borderPassword.style.borderColor = "orange";
     } else {
-        console.log("Le mot de passe doit contenir au moins un caractère spécial, un chiffre, une minuscule et une majuscule.");
+        borderPassword.style.borderColor = "red";
     }
 });
+
 
