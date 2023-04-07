@@ -19,6 +19,10 @@
 # accepter la newsletter
 # Voir Binance
 
+# TODO :
+# ajouter un easter egg dans l'erreur 404
+# ex google : "Oops, il n'y a rien a voir ici"
+
 from flask import Flask, render_template, request
 import psycopg2
 

@@ -61,6 +61,21 @@ passwordInput.addEventListener('input', function() {
     } else {
         borderPassword.style.borderColor = "red";
     }
+
+    if (password.length < 8 || !hasCharSpeciaux || !hasChiffres || !hasMinuscules || !hasMajuscules) {
+      // Afficher la boîte de dialogue avec les conditions
+      const passwordDialog = document.getElementById("password-dialog");
+      passwordDialog.style.display = "block";
+    }
 });
 
+
+const closePasswordDialog = document.getElementById("close-password-dialog");
+
+closePasswordDialog.addEventListener("click", function() {
+
+  const passwordDialog = document.getElementById("password-dialog");
+  passwordDialog.style.display = "none";
+  
+});
 
