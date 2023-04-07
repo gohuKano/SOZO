@@ -151,6 +151,9 @@ body.show {
 .header--SOZO {
   font-size: 40px;
 }
+.header__function {
+  padding-right: 10px;
+}
 .header__function img {
   height: 25px;
   transition: transform 200ms;
@@ -442,7 +445,6 @@ body.show {
   top: 60px;
   max-height: 100vh;
 }
-
 .carousel-caption {
   padding-bottom: 20rem !important;
 }
@@ -469,7 +471,6 @@ body.show {
     width: 70vw;
   }
 }
-
 .carousel-btn {
   color: #fff;
   border-radius: 25px;
@@ -518,11 +519,29 @@ body.show {
   font-size: 0.8em;
   transition: all 0.3s ease-in-out;
 }
-
 @media (max-width: 700px) {
   .carousel-indicators {
     visibility: hidden;
   }
+}
+
+.main {
+  font-family: "Jura";
+  background-color: #FFF;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+.main__img {
+  height: 30vh;
+}
+.main__p {
+  text-align: center;
+  width: 75vw;
+  font-size: 1.2em;
 }
 
 .register {
