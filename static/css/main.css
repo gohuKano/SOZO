@@ -226,6 +226,11 @@ body.show {
   border-radius: 10px;
   font-family: "Montserrat";
 }
+@media (max-width: 400px) {
+  .login-box {
+    width: 95vw;
+  }
+}
 .login-box.show {
   visibility: visible;
   opacity: 1;
@@ -299,6 +304,15 @@ body.show {
   flex-direction: row;
   margin-top: 20px;
 }
+@media (max-width: 400px) {
+  .button-form {
+    flex-direction: column;
+  }
+  .button-form div {
+    padding-top: 20px;
+    width: 60vw !important;
+  }
+}
 
 #register {
   font-size: 14px;
@@ -311,8 +325,11 @@ body.show {
 
 #register a {
   margin: auto;
-  color: #fff;
+  color: #6168a2;
   text-decoration: none;
+}
+#register a:hover {
+  text-decoration: underline;
 }
 
 .mobile-only__nav {
@@ -423,14 +440,11 @@ body.show {
 .carousel-item {
   position: relative;
   top: 60px;
-  min-height: 280px;
   max-height: 100vh;
 }
 
 .carousel-caption {
-  padding-bottom: 10rem !important;
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out;
+  padding-bottom: 20rem !important;
 }
 .carousel-caption:hover {
   color: inherit;
@@ -442,6 +456,18 @@ body.show {
   font-family: "Jura";
   color: #fff;
   border-radius: 50px;
+}
+@media (max-width: 700px) {
+  .carousel-caption {
+    padding-bottom: 7rem !important;
+  }
+  .carousel-caption a {
+    padding: 8px 20px;
+    font-size: 0.6em;
+  }
+  .carousel-caption a div {
+    width: 70vw;
+  }
 }
 
 .carousel-btn {
@@ -467,7 +493,7 @@ body.show {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 800;
-  font-size: 0.8em;
+  font-size: 1em;
   opacity: 0;
   transform: translate(-100%, 0);
   transition: all 0.3s ease-in-out;
@@ -491,6 +517,12 @@ body.show {
   font-weight: 800;
   font-size: 0.8em;
   transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 700px) {
+  .carousel-indicators {
+    visibility: hidden;
+  }
 }
 
 .register {
