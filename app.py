@@ -23,8 +23,14 @@
 # ajouter un easter egg dans l'erreur 404
 # ex google : "Oops, il n'y a rien a voir ici"
 
-from flask import Flask, render_template, request
+# TODO :
+# faire un fonction python validant le login
+# ex (flask doc): 
+# if valid_login(request.form['username'], request.form['password']):
+
+from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
+from markupsafe import escape
 
 app = Flask(__name__)
 
@@ -52,13 +58,14 @@ def register_process():
     if request.method == "POST":
         try:
             # get info from the user
-            # genre = request.form.get("genre")
-            prenom = request.form.get("prenom")
-            nom = request.form.get("nom")
-            email = request.form.get("email")
-            confirm_email = request.form.get("confirm-email")
-            password = request.form.get("password")
-            confirm_password = request.form.get("confirm-password")
+            # use the escape() function to prevent
+            # injection attacks
+            prenom = escape(request.form.get("prenom"))
+            nom = escape(request.form.get("nom"))
+            email = escape(request.form.get("email"))
+            confirm_email = escape(request.form.get("confirm-email"))
+            password = escape(request.form.get("password-register"))
+            confirm_password = escape(request.form.get("confirm-password"))
             
             print(prenom, nom, email, confirm_email, password, confirm_password)
 
@@ -96,16 +103,13 @@ def register_process():
             #                 alert_message="Account created successfully."
             #             )
             
-            return render_template("register.html")
+            return redirect(url_for("index"))
 
         except Exception as e:
             print(e)
-            return render_template(
-                        "register.html",
-                        alert_message="An error occurred. Please try again later."
-                )
+            return redirect(url_for("index"))
     else: 
-        return render_template("register.html")
+        return redirect(url_for("index"))
 
 
 @app.route("/login", methods=["POST"])
@@ -132,28 +136,19 @@ def login():
         if user:
             # display alert message
             print("Logged in successfully.")
-            return render_template(
-                    "login.html", 
-                    alert_message="Logged in successfully."
-                )
+            return redirect(url_for("index"))
         else:
             # display alert message
             print("Invalid email or password.")
-            return render_template(
-                        "index.html",
-                        alert_message="Invalid email or password."
-                    )
+            return redirect(url_for("index"))
 
     except Exception as e:
         print(e)
-        return render_template(
-                "index.html",
-                alert_message="An error occurred. Please try again later."
-                )
+        return redirect(url_for("index"))
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
+    print(e)
     return render_template('404.html'), 404
 
 @app.route("/", methods = ["GET", "POST"])
