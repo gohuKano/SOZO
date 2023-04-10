@@ -5,13 +5,13 @@ const to_blur = document.querySelectorAll('.to-blur');
 const header = document.getElementById("header");
 
 function enable_Form() {
-    document.getElementById('login-box').classList.toggle("show");
-    document.getElementById('login-box-blur').classList.toggle("show");
-    document.body.classList.toggle('show');
+  document.getElementById('login-box').classList.toggle("show");
+  document.getElementById('login-box-blur').classList.toggle("show");
+  document.body.classList.toggle('show');
 
-    to_blur.forEach(element => {
-          element.classList.toggle('show');
-      });   
+  to_blur.forEach(element => {
+    element.classList.toggle('show');
+  });   
 }
 
 document.addEventListener('click', (event) => {

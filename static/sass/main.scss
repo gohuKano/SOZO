@@ -635,6 +635,8 @@ body {
   }
 
   &__box {
+    // border: 2px black solid;
+
     margin: 50px 0;
     position: relative;
     left: 50%;
@@ -685,6 +687,14 @@ body {
           font-size: 1.5em !important;
         }
       }
+    }
+
+    .register__box__dialogue{
+      position: absolute;
+      left: 53vw;
+      width: 20vw;
+      color: #f4f4f4;
+      background-color: darken($color-primary, 20);
     }
 
     @media (max-width: 700px) {

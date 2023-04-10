@@ -621,6 +621,13 @@ body.show {
   padding: 20px 50px !important;
   font-size: 1.5em !important;
 }
+.register__box .register__box__dialogue {
+  position: absolute;
+  left: 53vw;
+  width: 20vw;
+  color: #f4f4f4;
+  background-color: #3a3f63;
+}
 @media (max-width: 700px) {
   .register__box {
     width: 80vw;
