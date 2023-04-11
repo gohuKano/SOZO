@@ -107,21 +107,6 @@ passwordInput.addEventListener('input', function() {
     }
 });
 
-passwordInput.addEventListener('focus', function() {
-  // Afficher la boîte de dialogue avec les conditions
-  // je veux que la boite du dialogue apparaisse uniquement quand
-  // l'utilisateur clique sur le mot de passe
-  // il faut que la boite de dialogue soit sur le coté gauche de 
-  // la saisie du mot de passe.
-  // assure toi que lorsque l'utilisateur ne click plus sur la saisie 
-  // du mot de passe, la boite de dialogue disparaisse
-  passwordDialog.style.display = "block";
-});
-
-passwordInput.addEventListener('blur', function() {
-  passwordDialog.style.display = "none";
-});
-
 const show_psw = (e) => {
   img_hide.classList.add("show");
   img_show.classList.add("show");
@@ -145,3 +130,18 @@ const hide_psw_2 = (e) => {
   document.getElementById("register__box__img_2--show").classList.remove("show");
   confirmPasswordInput.type = "password";
 };
+
+passwordInput.addEventListener('focus', function() {
+  // Afficher la boîte de dialogue avec les conditions
+  // je veux que la boite du dialogue apparaisse uniquement quand
+  // l'utilisateur clique sur le mot de passe
+  // il faut que la boite de dialogue soit sur le coté gauche de 
+  // la saisie du mot de passe.
+  // assure toi que lorsque l'utilisateur ne click plus sur la saisie 
+  // du mot de passe, la boite de dialogue disparaisse
+  passwordDialog.style.display = "block";
+});
+
+passwordInput.addEventListener('blur', function() {
+  passwordDialog.style.display = "none";
+});
