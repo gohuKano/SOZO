@@ -7,6 +7,8 @@
 # TODO :
 # verifier les données rentrer par l'utilisateur : escape
 # pour eviter les attaques par injections
+# refuser la validation du mdp du user 
+# si il ne respecte pas les conditions pour le mot de passe
 
 # TODO :
 # ajouter bouton pour accpter la politique de confidentialité
@@ -24,6 +26,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
 from markupsafe import escape
+from tests.test_auth import *
+# functions, from test_auth that need the database connection :
+# user_already_register(get_db_connection, email)
+# write_user_registration_in_db(get_db_connection, prenom, nom, email, password)
+
 
 app = Flask(__name__)
 
@@ -40,65 +47,9 @@ def get_db_connection():
     )
     return conn
 
-def email_match(email, email_to_confirm):
-    if email == email_to_confirm:
-        return 1
-    else: return 0
-
-def password_match(password, password_to_confirm):
-    if password == password_to_confirm:
-        return 1
-    else: return 0
-
-def user_already_register(email):
-    '''
-    check if the email already exists in the database
-    if the mail exist the function returns 1 and so the
-    user is supposed to already has an account
-    '''
-    # search into the database if the email is already register
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute(
-        'SELECT email FROM accounts WHERE email = %s',
-        (email,)
-    )
-    existing_email = cur.fetchone()
-    
-    if existing_email:
-        # return 1 if user already register
-        # 1 is yes, the user is already register
-        return 1
-    else:
-        # return 0 if user is not already register
-        # 0 is no, the user is not already register
-        return 0
-    
-def write_user_registration_in_db(prenom, nom, email, password):
-    '''
-    function that writes into the database
-    the data is supposed to have been checked
-    before writing to the database
-    '''
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute(
-        'INSERT INTO accounts (prenom, nom, email, password)'
-        'VALUES (%s, %s, %s, %s)',
-        (
-            prenom,
-            nom,
-            email,
-            password
-        )
-    )
-    conn.commit()
-
-    print("data write into database")
-
 @app.route("/register")
 def register():
-    return render_template("register.html")
+    return render_template("auth/register.html")
 
 @app.route("/register_process", methods=["POST"])
 def register_process():
@@ -116,23 +67,24 @@ def register_process():
 
             print(prenom, nom, email, confirm_email, password, confirm_password)
 
-            if not user_already_register(email):
+            if not user_already_register(get_db_connection(), email):
                 print("the user is not already register and so can be")
                 if email_match(email, confirm_email) and password_match(password, confirm_password):
                     # the email and password match eachother
                     # every precaution taken the data can be written
-                    write_user_registration_in_db(prenom, nom, email, password)
+                    # write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
                     # every thing has been handled well
                     # the user can be redirected
+                    print("write into database")
                     return redirect(url_for("index"))
                 else:
                     e = "email or password don't match"
                     print(e)
-                    return redirect(url_for("register"))
+                    return redirect(url_for("register"), e = e)
             else:
                 e = "the user is already register"
                 print(e)
-                return redirect(url_for("register"))
+                return redirect(url_for("register"), e = e)
 
             return redirect(url_for("index"))
         except Exception as e:

@@ -11,6 +11,7 @@ const img_hide = document.getElementById("register__box__img--hide");
 const img_show_2 = document.getElementById("register__box__img_2--show");
 const img_hide_2 = document.getElementById("register__box__img_2--hide");
 const passwordDialog = document.getElementById("password-dialog");
+const registerForm = document.getElementById("register-form");
 
 emailInput.addEventListener('input', function() {
   const email = emailInput.value;
@@ -95,11 +96,11 @@ passwordInput.addEventListener('input', function() {
     const hasMinLength = password.length >= 8;
 
     if (hasCharSpeciaux && hasChiffres && hasMinuscules && hasMajuscules && hasMinLength) {
-        borderPassword.style.borderColor = "green";
+      borderPassword.style.borderColor = "green";
     } else if ((hasCharSpeciaux || hasChiffres || hasMinuscules || hasMajuscules) && password.length >= 8) {
-        borderPassword.style.borderColor = "orange";
+      borderPassword.style.borderColor = "orange";
     } else {
-        borderPassword.style.borderColor = "red";
+      borderPassword.style.borderColor = "red";
     }
     if (password == "") {
       borderPassword.style.borderColor = "#000";
@@ -145,3 +146,19 @@ passwordInput.addEventListener('focus', function() {
 passwordInput.addEventListener('blur', function() {
   passwordDialog.style.display = "none";
 });
+
+// prevent the user to send the form if the
+// password and confirmPassword doesnt match
+if (passwordInput !== confirmPasswordInput) {
+  registerForm.addEventListener('submit', (event) => {
+
+    if (passwordInput !== confirmPasswordInput) {
+      event.preventDefault();
+      alert('Les mots de passe ne correspondent pas.');
+    }
+    if (emailInput !== confirmEmailInput) {
+      event.preventDefault();
+      alert('Les adresses e-mail ne correspondent pas.');
+    }
+  });
+}
