@@ -761,10 +761,10 @@ body {
       top:70%;
       transform: translate(-50%);
       border-radius: 5px;
-      font-size: 1.1em;
+      font-size: 0.7em;
       padding: 5px;
       color: #f4f4f4;
-      background-color: darken($color-primary, 20);
+      background-color: darken(#fff, 20);
       ul {
         margin: 0;
         display: flex;
@@ -782,7 +782,6 @@ body {
         ul {
           flex-direction: column;
           list-style: none;
-          li {}
         }
       }
       @media (max-width:1000px) {

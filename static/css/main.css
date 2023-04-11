@@ -695,10 +695,10 @@ body.show {
   top: 70%;
   transform: translate(-50%);
   border-radius: 5px;
-  font-size: 1.1em;
+  font-size: 0.7em;
   padding: 5px;
   color: #f4f4f4;
-  background-color: #3a3f63;
+  background-color: #cccccc;
 }
 .register__box .password-validation ul {
   margin: 0;
