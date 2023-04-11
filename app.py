@@ -22,17 +22,31 @@
 # TODO :
 # ajouter la possibilité de se connecté avec google ou apple
 
+# TODO :
+# faire la page profile client html
 
-from flask import Flask, render_template, request, redirect, url_for
+# TODO :
+# changer le login form
+# ecrire un message pour faire comprendre a l'utilisateur
+# qu'il est connecte ex: 'Bonjour Hugo.'
+# dans le login form changé ajouter 3 boutons :
+# i) Acceder à mon profile
+# ii) Bouton Deconexion
+# iii) Mon historique de commande
+
+
+from flask import Flask, render_template, request, redirect, url_for, session
 import psycopg2
 from markupsafe import escape
 from tests.test_auth import *
 # functions, from test_auth that need the database connection :
 # user_already_register(get_db_connection, email)
 # write_user_registration_in_db(get_db_connection, prenom, nom, email, password)
+# user_has_account(get_db_connection, email, password)
 
 
 app = Flask(__name__)
+app.secret_key = 'sozo'
 
 NAME_OF_DB = "sozo_db"
 USERNAME = "hugo_az"
@@ -72,7 +86,7 @@ def register_process():
                 if email_match(email, confirm_email) and password_match(password, confirm_password):
                     # the email and password match eachother
                     # every precaution taken the data can be written
-                    # write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
+                    write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
                     # every thing has been handled well
                     # the user can be redirected
                     print("write into database")
@@ -85,8 +99,6 @@ def register_process():
                 e = "the user is already register"
                 print(e)
                 return redirect(url_for("register"))
-
-            return redirect(url_for("index"))
         except Exception as e:
             print(e)
             return redirect(url_for("index"))
@@ -94,34 +106,26 @@ def register_process():
         return redirect(url_for("index"))
 
 
-@app.route("/login", methods=["POST"])
-def login():
-    try:
-        # getting data from the user
-        email = request.form.get("e-mail")
-        password = request.form.get("password")
+@app.route("/login_process", methods=["POST"])
+def login_process():
+    if request.method == "POST":
+        try:
+            # getting data from the user
+            email = escape(request.form.get("e-mail"))
+            password = escape(request.form.get("password"))
 
-        print(email, password)
+            print(email, password)
 
-        # connecting to the database
-        conn = get_db_connection()
-        cur = conn.cursor()
-        # check if the email and password match a record in the database
-        cur.execute(
-            "SELECT * FROM accounts WHERE email = %s AND password = %s",
-            (email, password)
-        )
-        user = cur.fetchone()
-        if user:
-            # display alert message
-            print("Logged in successfully.")
+            if user_has_account(get_db_connection(), email, password):
+                name_of_user = get_user_data(get_db_connection(), email, password, 1)
+                print(name_of_user)
+                session['name_of_user'] = name_of_user
+
             return redirect(url_for("index"))
-        else:
-            # display alert message
-            print("Invalid email or password.")
+        except Exception as e:
+            print(e)
             return redirect(url_for("index"))
-    except Exception as e:
-        print(e)
+    else:
         return redirect(url_for("index"))
 
 @app.errorhandler(404)
