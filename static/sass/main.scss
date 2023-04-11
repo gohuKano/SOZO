@@ -608,7 +608,10 @@ body {
   .register__box__img_1 {
     position: absolute;
     top: 65%;
-    left: 95%;
+    left: 92%;
+    @media (max-width:700px) {
+      top: 66.5%;
+    }
     cursor: pointer;
     img {
       height: 20px
@@ -633,7 +636,10 @@ body {
   .register__box__img_2 {    
     position: absolute;
     top: 78%;
-    left: 95%;
+    left: 92%;
+    @media (max-width:700px) {
+      top: 80%;
+    }
     cursor: pointer;
     img {
       height: 20px
@@ -737,17 +743,40 @@ body {
           font-size: 1.5em !important;
         }
       }
+
     }
-
-    .register__box__dialogue{
-      padding: 5px;
-      display: flex;
-
+    .main-register__form__field--psw:focus + .password-validation {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+    .password-validation{
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
       position: absolute;
       left: 53vw;
-      width: 20vw;
+      top: 45vh;
+      width: 15vw;
+      border-radius: 5px;
+      padding: 5px;
       color: #f4f4f4;
       background-color: darken($color-primary, 20);
+      ul {
+        margin: 0;
+      }
+      @media (max-width:700px) {
+        font-size: 0.7em;
+        width: 80vw;
+        left: 50%;
+        top:70%;
+        transform: translate(-50%);
+        z-index: 10;
+      }
+      @media (max-width:1000px) {
+        font-size: 0.7em;
+        width: 20vw;
+      }
     }
 
     @media (max-width: 700px) {

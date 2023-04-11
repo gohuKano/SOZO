@@ -12,10 +12,15 @@ const img_show_2 = document.getElementById("register__box__img_2--show");
 const img_hide_2 = document.getElementById("register__box__img_2--hide");
 const passwordDialog = document.getElementById("password-dialog");
 const registerForm = document.getElementById("register-form");
+var passwordLength = document.getElementById("password-length");
+var passwordUppercase = document.getElementById("password-uppercase");
+var passwordNumber = document.getElementById("password-number");
+var passwordSpecial = document.getElementById("password-special");
 const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
 const chiffres = /[0-9]/; // chiffres autorisés
 const minuscules = /[a-z]/; // minuscules autorisées
 const majuscules = /[A-Z]/; // majuscules autorisées
+
 
 emailInput.addEventListener('input', function() {
   const email = emailInput.value;
@@ -55,10 +60,6 @@ confirmPasswordInput.addEventListener('input', function() {
   const password = passwordInput.value;
   const confirmPassword = confirmPasswordInput.value;
 
-  const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
-  const chiffres = /[0-9]/; // chiffres autorisés
-  const minuscules = /[a-z]/; // minuscules autorisées
-  const majuscules = /[A-Z]/; // majuscules autorisées
 
   const hasCharSpeciaux = char_speciaux.test(password);
   const hasChiffres = chiffres.test(password);
@@ -88,16 +89,38 @@ passwordInput.addEventListener('input', function() {
     // et en rouge lorsque le mot de passe est faible.
 
     const password = passwordInput.value;
-    const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
-    const chiffres = /[0-9]/; // chiffres autorisés
-    const minuscules = /[a-z]/; // minuscules autorisées
-    const majuscules = /[A-Z]/; // majuscules autorisées
 
     const hasCharSpeciaux = char_speciaux.test(password);
     const hasChiffres = chiffres.test(password);
     const hasMinuscules = minuscules.test(password);
     const hasMajuscules = majuscules.test(password);
     const hasMinLength = password.length >= 8;
+
+    if (hasMinLength) {
+      passwordLength.style.color = "green";
+    } else {
+      passwordLength.style.color = "white";
+    }
+    
+    if (hasMajuscules) {
+      passwordUppercase.style.color = "green";
+    } else {
+      passwordUppercase.style.color = "white";
+    }
+    
+    if (hasChiffres) {
+      passwordNumber.style.color = "green";
+    } else {
+      passwordNumber.style.color = "white";
+    }
+    
+    if (hasCharSpeciaux) {
+      passwordSpecial.style.color = "green";
+    } else {
+      passwordSpecial.style.color = "white";
+    }
+
+
 
     if (hasCharSpeciaux && hasChiffres && hasMinuscules && hasMajuscules && hasMinLength) {
       borderPassword.style.borderColor = "green";
@@ -136,20 +159,6 @@ const hide_psw_2 = (e) => {
   confirmPasswordInput.type = "password";
 };
 
-passwordInput.addEventListener('focus', function() {
-  // Afficher la boîte de dialogue avec les conditions
-  // je veux que la boite du dialogue apparaisse uniquement quand
-  // l'utilisateur clique sur le mot de passe
-  // il faut que la boite de dialogue soit sur le coté gauche de 
-  // la saisie du mot de passe.
-  // assure toi que lorsque l'utilisateur ne click plus sur la saisie 
-  // du mot de passe, la boite de dialogue disparaisse
-  passwordDialog.style.display = "block";
-});
-
-passwordInput.addEventListener('blur', function() {
-  passwordDialog.style.display = "none";
-});
 
 // prevent the user to send the form if the
 // password and confirmPassword doesnt match
