@@ -689,16 +689,22 @@ body.show {
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
   position: fixed;
-  left: 53vw;
-  top: 500px;
-  width: 15vw;
+  font-size: 0.7em;
+  width: 50vw !important;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%);
   border-radius: 5px;
+  font-size: 1.1em;
   padding: 5px;
   color: #f4f4f4;
   background-color: #3a3f63;
 }
 .register__box .password-validation ul {
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 @media (max-width: 700px) {
   .register__box .password-validation {
@@ -708,6 +714,9 @@ body.show {
     top: 70%;
     transform: translate(-50%);
     z-index: 10;
+  }
+  .register__box .password-validation ul {
+    flex-direction: column;
   }
 }
 @media (max-width: 1000px) {
