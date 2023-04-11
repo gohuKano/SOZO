@@ -149,16 +149,34 @@ passwordInput.addEventListener('blur', function() {
 
 // prevent the user to send the form if the
 // password and confirmPassword doesnt match
-if (passwordInput !== confirmPasswordInput) {
-  registerForm.addEventListener('submit', (event) => {
+registerForm.addEventListener('submit', (event) => {
+  const password = passwordInput.value;
+  const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
+  const chiffres = /[0-9]/; // chiffres autorisés
+  const minuscules = /[a-z]/; // minuscules autorisées
+  const majuscules = /[A-Z]/; // majuscules autorisées
 
-    if (passwordInput !== confirmPasswordInput) {
-      event.preventDefault();
-      alert('Les mots de passe ne correspondent pas.');
-    }
-    if (emailInput !== confirmEmailInput) {
-      event.preventDefault();
-      alert('Les adresses e-mail ne correspondent pas.');
-    }
-  });
-}
+  const hasCharSpeciaux = char_speciaux.test(password);
+  const hasChiffres = chiffres.test(password);
+  const hasMinuscules = minuscules.test(password);
+  const hasMajuscules = majuscules.test(password);
+  const hasMinLength = password.length >= 8;
+
+  // verification of emails
+  if (emailInput.value !== confirmEmailInput.value) {
+    event.preventDefault();
+    alert('Les adresses e-mail ne correspondent pas.');
+  }
+
+  // verification of passwords
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    event.preventDefault();
+    alert('Les mots de passes ne correspondent pas.');
+  }
+
+  // verification of password security
+  if (!(hasCharSpeciaux && hasChiffres && hasMinuscules && hasMajuscules && hasMinLength)) {
+    event.preventDefault();
+    alert('Le mot de passe n\'est pas assez securisé');
+  }
+});

@@ -80,11 +80,11 @@ def register_process():
                 else:
                     e = "email or password don't match"
                     print(e)
-                    return redirect(url_for("register"), e = e)
+                    return redirect(url_for("register"))
             else:
                 e = "the user is already register"
                 print(e)
-                return redirect(url_for("register"), e = e)
+                return redirect(url_for("register"))
 
             return redirect(url_for("index"))
         except Exception as e:
