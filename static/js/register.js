@@ -12,6 +12,10 @@ const img_show_2 = document.getElementById("register__box__img_2--show");
 const img_hide_2 = document.getElementById("register__box__img_2--hide");
 const passwordDialog = document.getElementById("password-dialog");
 const registerForm = document.getElementById("register-form");
+const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
+const chiffres = /[0-9]/; // chiffres autorisés
+const minuscules = /[a-z]/; // minuscules autorisées
+const majuscules = /[A-Z]/; // majuscules autorisées
 
 emailInput.addEventListener('input', function() {
   const email = emailInput.value;
@@ -150,11 +154,10 @@ passwordInput.addEventListener('blur', function() {
 // prevent the user to send the form if the
 // password and confirmPassword doesnt match
 registerForm.addEventListener('submit', (event) => {
+  const email = emailInput.value;
+  const confirmEmail = confirmEmailInput.value;
   const password = passwordInput.value;
-  const char_speciaux = /[!@#$%^&*(),.?":{}|<>]/; // caractères spéciaux autorisés
-  const chiffres = /[0-9]/; // chiffres autorisés
-  const minuscules = /[a-z]/; // minuscules autorisées
-  const majuscules = /[A-Z]/; // majuscules autorisées
+  const confirmPassword = confirmPasswordInput.value;
 
   const hasCharSpeciaux = char_speciaux.test(password);
   const hasChiffres = chiffres.test(password);
@@ -162,14 +165,23 @@ registerForm.addEventListener('submit', (event) => {
   const hasMajuscules = majuscules.test(password);
   const hasMinLength = password.length >= 8;
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const validEmail = emailPattern.test(email);
+
   // verification of emails
-  if (emailInput.value !== confirmEmailInput.value) {
+  if (email !== confirmEmail) {
     event.preventDefault();
     alert('Les adresses e-mail ne correspondent pas.');
   }
 
+  // verification is email is valid
+  if (!validEmail) {
+    event.preventDefault();
+    alert('L\'adresse e-mail n\'est pas valide.');
+  }
+
   // verification of passwords
-  if (passwordInput.value !== confirmPasswordInput.value) {
+  if (password!== confirmPassword) {
     event.preventDefault();
     alert('Les mots de passes ne correspondent pas.');
   }
