@@ -5,25 +5,21 @@
 # de voir les settings ( adresse, ... ) de son compte.
 
 # TODO :
-# ajouter l'annimation dans le register.html lorsque
-# le user client sur un input ( cf. voir site stone island )
 # verifier les données rentrer par l'utilisateur : escape
 # pour eviter les attaques par injections
 
 # TODO :
-# mettre petit bouton pour afficher le mot de passe
 # ajouter bouton pour accpter la politique de confidentialité
 # accepter la newsletter
-# Voir Binance
+# voir Binance
 
 # TODO :
 # ajouter un easter egg dans l'erreur 404
 # ex google : "Oops, il n'y a rien a voir ici"
 
 # TODO :
-# faire un fonction python validant le login
-# ex (flask doc): 
-# if valid_login(request.form['username'], request.form['password']):
+# ajouter la possibilité de se connecté avec google ou apple
+
 
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
