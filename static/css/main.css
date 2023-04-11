@@ -548,28 +548,52 @@ body.show {
   font-family: "Jura";
   margin-top: 80px;
 }
-.register .register__box__img {
+.register .register__box__img_1 {
   position: absolute;
   top: 65%;
   left: 95%;
   cursor: pointer;
 }
-.register .register__box__img img {
+.register .register__box__img_1 img {
   height: 20px;
 }
-.register .register__box__img--show {
+.register .register__box__img_1--show {
   position: inherit;
   top: 0;
   visibility: hidden;
 }
-.register .register__box__img--show.show {
+.register .register__box__img_1--show.show {
   visibility: visible;
 }
-.register .register__box__img--hide {
+.register .register__box__img_1--hide {
   position: inherit;
   top: 0;
 }
-.register .register__box__img--hide.show {
+.register .register__box__img_1--hide.show {
+  visibility: hidden;
+}
+.register .register__box__img_2 {
+  position: absolute;
+  top: 78%;
+  left: 95%;
+  cursor: pointer;
+}
+.register .register__box__img_2 img {
+  height: 20px;
+}
+.register .register__box__img_2--show {
+  position: inherit;
+  top: 0;
+  visibility: hidden;
+}
+.register .register__box__img_2--show.show {
+  visibility: visible;
+}
+.register .register__box__img_2--hide {
+  position: inherit;
+  top: 0;
+}
+.register .register__box__img_2--hide.show {
   visibility: hidden;
 }
 .register #submit-register {

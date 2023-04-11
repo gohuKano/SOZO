@@ -605,9 +605,34 @@ body {
   font-family: "Jura";
   margin-top: 80px;
 
-  .register__box__img {    
+  .register__box__img_1 {
     position: absolute;
     top: 65%;
+    left: 95%;
+    cursor: pointer;
+    img {
+      height: 20px
+    }
+    &--show{
+      position: inherit;
+      top: 0;
+      visibility: hidden;
+      &.show {
+        visibility: visible;
+      }
+    }
+    &--hide{
+      position: inherit;
+      top: 0;
+      &.show {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .register__box__img_2 {    
+    position: absolute;
+    top: 78%;
     left: 95%;
     cursor: pointer;
     img {
