@@ -705,6 +705,7 @@ body.show {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  list-style: none;
 }
 @media (max-width: 700px) {
   .register__box .password-validation {
@@ -717,6 +718,7 @@ body.show {
   }
   .register__box .password-validation ul {
     flex-direction: column;
+    list-style: none;
   }
 }
 @media (max-width: 1000px) {
