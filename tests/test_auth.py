@@ -60,3 +60,52 @@ def write_user_registration_in_db(get_db_connection, prenom, nom, email, passwor
 
     print("data write into database")
 
+def user_has_account(get_db_connection, email, password):
+    '''
+    check if the email already exists in the database
+    if the mail exist the function returns 1 and so the
+    user is supposed to already has an account
+    '''
+    # connecting to the database
+    conn = get_db_connection
+    cur = conn.cursor()
+    # check if the email and password match a record in the database
+    cur.execute(
+    "SELECT * FROM accounts WHERE email = %s AND password = %s",
+    (email, password)
+    )
+    has_account = cur.fetchone()
+
+    if has_account:
+        # return 1 if user has an account
+        # 1 is yes, the user is has an account
+        return 1
+    else:
+        # return 0 if user does not have an account
+        # 0 is no, the user has not an account
+        return 0
+    
+def get_user_data(get_db_connection, email, password, data):
+    '''
+    function that find the user in the database
+    and get the user data
+
+    data in the db : 
+    (primary_key, 'prenom', 'nom', 'email', 'password')
+    the 'data' var will take the 'data'-th element in the tupple
+
+    get_user_data(get_db_connection(), email, password, 1)
+    will return the prenom
+    '''
+    # connecting to the database
+    conn = get_db_connection
+    cur = conn.cursor()
+    # check if the email and password match a record in the database
+    cur.execute(
+    "SELECT * FROM accounts WHERE email = %s AND password = %s",
+    (email, password)
+    )
+    has_account = cur.fetchone()
+
+    return has_account[data]
+

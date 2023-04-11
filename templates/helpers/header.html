@@ -7,7 +7,7 @@
 
     <div id="login-box" class="login-box">
         <h2>Login</h2>
-        <form method="POST" action="login">
+        <form method="POST" action="login_process">
             <div class="user-box">
                 <input type="text" id="" name="e-mail" required="">
                 <label>E-mail</label>
@@ -77,6 +77,11 @@
     <div class="header__function">
         <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
         <button type="button" class="btn" onclick=""><img src="../static/images/header/cart.svg" alt="cart logo"></button>
+        <div>
+            {% if 'name_of_user' in session %}
+                <p>{{ session['name_of_user'] }}</p>
+            {% endif %}
+        </div>
     </div>
 </header>
 
