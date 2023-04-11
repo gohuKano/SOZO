@@ -79,3 +79,14 @@ passwordInput.addEventListener('focus', function() {
 passwordInput.addEventListener('blur', function() {
   passwordDialog.style.display = "none";
 });
+
+const img_show = document.getElementById("register__box__img-show");
+const img_hide = document.getElementById("register__box__img-hide");
+
+img_show.addEventListener("click", function() {
+  passwordInput.type = 'password';
+
+  img_show.display = 'none';
+  img_hide.display = 'block';
+  console.log("ok");
+});

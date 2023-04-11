@@ -602,6 +602,21 @@ body {
 // ---------------------------------------
 .register {
 
+  font-family: "Jura";
+  margin-top: 80px;
+
+  .register__box__img {
+    height: 20px;
+    position: absolute;
+    top: 65%;
+    left: 95%;
+    cursor: pointer;
+  }
+
+  #register__box__img-show{
+    display: none;
+  }
+
   #submit-register {
     padding: 10px 20px;
     color: #FFF;
@@ -621,9 +636,6 @@ body {
     color: #fff;
     box-shadow: 0 0 2px $color-primary, 0 0 25px , 0 0 50px $color-primary, 0 0 100px $color-primary;
   }
-
-  font-family: "Jura";
-  margin-top: 80px;
 
   &__text{
     position: relative;

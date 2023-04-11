@@ -548,6 +548,16 @@ body.show {
   font-family: "Jura";
   margin-top: 80px;
 }
+.register .register__box__img {
+  height: 20px;
+  position: absolute;
+  top: 65%;
+  left: 95%;
+  cursor: pointer;
+}
+.register #register__box__img-show {
+  display: none;
+}
 .register #submit-register {
   padding: 10px 20px;
   color: #FFF;
