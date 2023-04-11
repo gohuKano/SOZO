@@ -605,16 +605,29 @@ body {
   font-family: "Jura";
   margin-top: 80px;
 
-  .register__box__img {
-    height: 20px;
+  .register__box__img {    
     position: absolute;
     top: 65%;
     left: 95%;
     cursor: pointer;
-  }
-
-  #register__box__img-show{
-    display: none;
+    img {
+      height: 20px
+    }
+    &--show{
+      position: inherit;
+      top: 0;
+      visibility: hidden;
+      &.show {
+        visibility: visible;
+      }
+    }
+    &--hide{
+      position: inherit;
+      top: 0;
+      &.show {
+        visibility: hidden;
+      }
+    }
   }
 
   #submit-register {

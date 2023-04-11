@@ -80,13 +80,17 @@ passwordInput.addEventListener('blur', function() {
   passwordDialog.style.display = "none";
 });
 
-const img_show = document.getElementById("register__box__img-show");
-const img_hide = document.getElementById("register__box__img-hide");
+const img_show = document.getElementById("register__box__img--show");
+const img_hide = document.getElementById("register__box__img--hide");
 
-img_show.addEventListener("click", function() {
-  passwordInput.type = 'password';
+const show_psw = (e) => {
+  img_hide.classList.add("show");
+  img_show.classList.add("show");
+  passwordInput.type = "text";
+};
 
-  img_show.display = 'none';
-  img_hide.display = 'block';
-  console.log("ok");
-});
+const hide_psw = (e) => {
+  document.getElementById('register__box__img--hide').classList.remove("show");
+  document.getElementById("register__box__img--show").classList.remove("show");
+  passwordInput.type = "password";
+};

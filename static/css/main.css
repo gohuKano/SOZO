@@ -549,14 +549,28 @@ body.show {
   margin-top: 80px;
 }
 .register .register__box__img {
-  height: 20px;
   position: absolute;
   top: 65%;
   left: 95%;
   cursor: pointer;
 }
-.register #register__box__img-show {
-  display: none;
+.register .register__box__img img {
+  height: 20px;
+}
+.register .register__box__img--show {
+  position: inherit;
+  top: 0;
+  visibility: hidden;
+}
+.register .register__box__img--show.show {
+  visibility: visible;
+}
+.register .register__box__img--hide {
+  position: inherit;
+  top: 0;
+}
+.register .register__box__img--hide.show {
+  visibility: hidden;
 }
 .register #submit-register {
   padding: 10px 20px;
