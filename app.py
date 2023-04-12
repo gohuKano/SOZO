@@ -12,7 +12,7 @@
 
 # TODO :
 # ajouter bouton pour accpter la politique de confidentialité
-# accepter la newsletter
+# accepter la newsletter --> Faire désabonnement
 # voir Binance
 
 # TODO :

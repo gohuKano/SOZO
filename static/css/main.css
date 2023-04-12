@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Montserrat";
   src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("woff2"), url("../fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
@@ -550,8 +551,8 @@ body.show {
 }
 .register .register__box__img_1 {
   position: absolute;
-  top: 58%;
-  left: 92%;
+  top: 590px;
+  left: 95%;
   cursor: pointer;
 }
 .register .register__box__img_1 img {
@@ -574,8 +575,8 @@ body.show {
 }
 .register .register__box__img_2 {
   position: absolute;
-  top: 70%;
-  left: 92%;
+  top: 710px;
+  left: 95%;
   cursor: pointer;
 }
 .register .register__box__img_2 img {
@@ -661,44 +662,80 @@ body.show {
   outline: none;
   background: transparent;
 }
-.register__box__input--check {
-  padding: 10px;
-  gap: 10px;
-  width: 80vw;
+.register__box__input--checkbox .slider-checkbox {
+  position: relative;
+  padding: 5px 0;
 }
-.register__box__input--check input[type=checkbox].check {
-  display: none;
+.register__box__input--checkbox .slider-checkbox input {
+  margin: 0px;
+  margin-top: 1px;
+  cursor: pointer;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  background: red;
+  width: 40px;
+  height: 20px;
 }
-.register__box__input--check input[type=checkbox].check + label {
-  box-sizing: border-box;
-  width: 3rem;
-  height: 1.5rem;
-  border-radius: 1.5rem;
-  padding: 2px;
-  background-color: #c0ceda;
-  transition: all 0.5s;
-}
-.register__box__input--check input[type=checkbox].check + label::before {
-  box-sizing: border-box;
-  display: block;
-  content: "";
-  height: calc(1.5rem - 4px);
-  width: calc(1.5rem - 4px);
-  border-radius: 50%;
-  background-color: #fff;
-  transition: all 0.5s;
-}
-.register__box__input--check input[type=checkbox].check:checked + label {
+.register__box__input--checkbox .slider-checkbox input:checked + .label:before {
   background-color: #6168a2;
+  content: "✔";
+  padding-left: 6px;
 }
-.register__box__input--check input[type=checkbox].check:checked + label::before {
-  margin-left: 1.5rem;
+.register__box__input--checkbox .slider-checkbox input:checked + .label:after {
+  left: 21px;
+}
+.register__box__input--checkbox .slider-checkbox .label {
+  position: relative;
+  padding-left: 46px;
 }
 @media (max-width: 700px) {
-  .register__box__input--check {
-    width: 100vw;
-    font-size: 0.7em;
+  .register__box__input--checkbox .slider-checkbox .label {
+    font-size: 0.8em;
   }
+}
+.register__box__input--checkbox .slider-checkbox .label:before, .register__box__input--checkbox .slider-checkbox .label:after {
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s, left 0.3s;
+}
+.register__box__input--checkbox .slider-checkbox .label:before {
+  content: "✖";
+  color: #fff;
+  box-sizing: border-box;
+  font-family: "FontAwesome", sans-serif;
+  padding-left: 23px;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: grey;
+  left: 0px;
+  top: 0px;
+  height: 20px;
+  width: 40px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.register__box__input--checkbox .slider-checkbox .label:after {
+  content: "";
+  letter-spacing: 20px;
+  background: #fff;
+  left: 1px;
+  top: 1px;
+  height: 18px;
+  width: 18px;
+}
+.register__box__input--checkbox .slider-checkbox .label a {
+  color: #000;
 }
 .register__box__input--btn {
   margin: 20px 0;
@@ -722,7 +759,7 @@ body.show {
   font-size: 0.7em;
   width: 50vw !important;
   left: 50%;
-  top: 70%;
+  top: 625px;
   transform: translate(-50%);
   border-radius: 5px;
   font-size: 0.7em;
@@ -742,7 +779,7 @@ body.show {
     font-size: 0.7em;
     width: 80vw !important;
     left: 50%;
-    top: 70%;
+    top: 618px;
     transform: translate(-50%);
     z-index: 10;
   }
@@ -771,81 +808,115 @@ body.show {
   font-size: 15px;
 }
 
-.footer {
-  padding: 50px 0;
+footer {
   background-color: #1a1a1a;
-  margin: 0;
   height: auto;
   font-family: "Jura";
+}
+footer .footer {
+  padding: 30px 0;
   display: flex;
   justify-content: space-between;
   color: #FFF;
 }
+@media (max-width: 1000px) {
+  footer .footer {
+    font-size: 0.8em;
+  }
+  footer .footer h2 {
+    font-size: 1.5em;
+  }
+}
 @media (max-width: 700px) {
-  .footer {
+  footer .footer {
     flex-direction: column;
     align-items: center;
     height: auto;
     width: auto;
   }
-  .footer > * {
+  footer .footer > * {
     height: auto;
     width: auto !important;
   }
-  .footer__middle ul li a {
+  footer .footer__middle ul li a {
     text-decoration: underline !important;
   }
 }
-.footer h2 {
+footer .footer h2 {
   padding: 20px 0;
 }
-.footer__left {
+footer .footer__left {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 33vw;
 }
-.footer__middle {
+footer .footer__middle {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 33vw;
 }
-.footer__middle ul {
+footer .footer__middle ul {
   padding: 0;
 }
-.footer__middle ul li {
+footer .footer__middle ul li {
   list-style-type: none;
   display: flex;
   justify-content: center;
 }
-.footer__middle ul li a {
+footer .footer__middle ul li a {
   text-decoration: none;
   color: #fff;
 }
-.footer__middle ul li a:hover {
+footer .footer__middle ul li a:hover {
   text-decoration: underline;
 }
-.footer__right {
+footer .footer__right {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 33vw;
 }
-.footer__right p {
+footer .footer__right p {
   width: 75%;
   text-align: center;
 }
-.footer__right ul {
+footer .footer__bot {
+  position: relative;
+  width: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FFF;
+}
+@media (max-width: 1000px) {
+  footer .footer__bot {
+    width: 80%;
+  }
+  footer .footer__bot ul {
+    width: 80%;
+  }
+}
+footer .footer__bot ul {
+  padding: 30px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 50%;
 }
-.footer__right ul li a svg {
-  height: 50px;
+footer .footer__bot ul li a svg {
+  transform: scale(1);
+  transition: transform 0.2s;
+  height: 30px;
   color: #fff;
+}
+footer .footer__bot ul li a svg:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
 }
 
 /*# sourceMappingURL=main.css.map */
