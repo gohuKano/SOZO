@@ -765,7 +765,7 @@ body.show {
   font-size: 0.7em;
   padding: 5px;
   color: #f4f4f4;
-  background-color: #cccccc;
+  background-color: #333333;
 }
 .register__box .password-validation ul {
   margin: 0;
