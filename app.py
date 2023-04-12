@@ -21,6 +21,7 @@
 
 # TODO :
 # ajouter la possibilité de se connecté avec google ou apple
+# compliqué pour le moment car il faut avoir numéro NUND --> voir site apple developer
 
 # TODO :
 # faire la page profile client html
