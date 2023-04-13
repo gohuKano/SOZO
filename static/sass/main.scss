@@ -20,6 +20,7 @@ $color-primary:#6168a2;
 * {
   text-decoration: none;
   box-sizing: border-box;
+  font-family: 'Jura';
 }
 
 body {
@@ -167,7 +168,6 @@ body {
     a {
       color: #fff;
       text-align: center;
-      font-family: 'Jura';
     }
     &--SOZO {
       font-size: 40px;
@@ -256,7 +256,6 @@ body {
   background: #242026;
   box-shadow: 0 15px 25px $color-primary;
   border-radius: 10px;
-  font-family: 'Montserrat';
 @media (max-width: 400px) {
   width: 95vw;
 }
@@ -388,7 +387,6 @@ body {
     list-style: none;
     font-size: 5vw;
     color: white;
-    font-family: 'Jura';
     a {
       display: flex;
       color: white;
@@ -507,7 +505,6 @@ body {
       padding: 20px 30px;
       text-decoration: none;
       background-color: $color-primary;
-      font-family: 'Jura';
       color: #fff;
       border-radius: 50px;
     }
@@ -575,10 +572,13 @@ body {
       visibility: hidden;
     }
   }
+  &-control {
+    transform: translateY(60px);
+    height: calc(100% - 60px);
+  }
 }
 
 .main {
-  font-family: 'Jura';
   background-color: #FFF;
   color: #000;
   display: flex;
@@ -601,10 +601,7 @@ body {
 // ---- style for the register page ------
 // ---------------------------------------
 .register {
-
-  font-family: "Jura";
   margin-top: 80px;
-
   .register__box__img_1 {
     position: absolute;
     top: 590px;
@@ -690,19 +687,13 @@ body {
   }
 
   &__box {
-    // border: 2px black solid;
-
     margin: 50px 0;
     position: relative;
     left: 50%;
     transform: translate(-50%);
-
     width: 50vw;
     margin-top: 40px;
-
     color: black;
-    font-family: 'Montserrat';
-
     h2 {
       font-size: 3em;
       padding-bottom: 30px;
@@ -888,8 +879,6 @@ body {
 footer {
   background-color: lighten($color: #000, $amount: 10%);
   height: auto;
-  font-family: 'Jura';
-  
   .footer {
     padding: 30px 0;
     display: flex;
@@ -967,10 +956,10 @@ footer {
       align-items: center;
       color: #FFF;
 
-      @media (max-width:1000px) {
+      @media (max-width:800px) {
         width: 80%;
         ul {
-          width: 80%;
+          width: 70vw !important;
         }
       }
       ul {

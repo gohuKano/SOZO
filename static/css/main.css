@@ -14,6 +14,7 @@
 * {
   text-decoration: none;
   box-sizing: border-box;
+  font-family: "Jura";
 }
 
 body.show {
@@ -147,7 +148,6 @@ body.show {
 .header a {
   color: #fff;
   text-align: center;
-  font-family: "Jura";
 }
 .header--SOZO {
   font-size: 40px;
@@ -228,7 +228,6 @@ body.show {
   background: #242026;
   box-shadow: 0 15px 25px #6168a2;
   border-radius: 10px;
-  font-family: "Montserrat";
 }
 @media (max-width: 400px) {
   .login-box {
@@ -358,7 +357,6 @@ body.show {
   list-style: none;
   font-size: 5vw;
   color: white;
-  font-family: "Jura";
 }
 .mobile-only__nav li a {
   display: flex;
@@ -456,7 +454,6 @@ body.show {
   padding: 20px 30px;
   text-decoration: none;
   background-color: #6168a2;
-  font-family: "Jura";
   color: #fff;
   border-radius: 50px;
 }
@@ -525,9 +522,12 @@ body.show {
     visibility: hidden;
   }
 }
+.carousel-control {
+  transform: translateY(60px);
+  height: calc(100% - 60px);
+}
 
 .main {
-  font-family: "Jura";
   background-color: #FFF;
   color: #000;
   display: flex;
@@ -546,7 +546,6 @@ body.show {
 }
 
 .register {
-  font-family: "Jura";
   margin-top: 80px;
 }
 .register .register__box__img_1 {
@@ -632,7 +631,6 @@ body.show {
   width: 50vw;
   margin-top: 40px;
   color: black;
-  font-family: "Montserrat";
 }
 .register__box h2 {
   font-size: 3em;
@@ -811,7 +809,6 @@ body.show {
 footer {
   background-color: #1a1a1a;
   height: auto;
-  font-family: "Jura";
 }
 footer .footer {
   padding: 30px 0;
@@ -893,12 +890,12 @@ footer .footer__bot {
   align-items: center;
   color: #FFF;
 }
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   footer .footer__bot {
     width: 80%;
   }
   footer .footer__bot ul {
-    width: 80%;
+    width: 70vw !important;
   }
 }
 footer .footer__bot ul {
