@@ -439,6 +439,47 @@ body.show {
   justify-self: end;
 }
 
+.unsubscribe-container {
+  margin: 20vh auto;
+  text-align: center;
+  height: 40vh;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.unsubscribe-container__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.unsubscribe-container__form--email {
+  width: 20vw;
+  padding: 20px 30px;
+  font-size: 1.2em;
+  border: 1px solid black;
+}
+.unsubscribe-container__form--submit {
+  width: 20vw;
+  padding: 10px 20px;
+  color: #FFF;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border: 1px solid #000;
+  margin: auto;
+  background-color: #242026;
+}
+.unsubscribe-container__form--submit:hover {
+  background: #3a3f63;
+  color: #fff;
+  box-shadow: 0 0 2px #6168a2, 0 0 25px, 0 0 50px #6168a2, 0 0 100px #6168a2;
+}
+
 .carousel-item {
   position: relative;
   top: 60px;

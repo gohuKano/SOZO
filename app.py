@@ -138,5 +138,31 @@ def page_not_found(e):
 def index():
     return render_template("index.html")
 
+@app.route("/unsubscribe")
+def unsubscribe():
+    return render_template("unsubscribe.html")
+
+@app.route("/unsubscribe_process", methods=["POST"])
+def unsubscribe_process():
+    if request.method == "POST":
+        try:
+            # getting data from the user
+            email = escape(request.form.get("email"))
+
+            print(email)
+
+            # if user_has_account(get_db_connection(), email):
+            #     name_of_user = get_user_data(get_db_connection(), email, 1)
+            #     print(name_of_user)
+            #     session['name_of_user'] = name_of_user
+            #  Faire suppression BDD newslatter
+
+            return redirect(url_for("index"))
+        except Exception as e:
+            print(e)
+            return redirect(url_for("index"))
+    else:
+        return redirect(url_for("index"))
+
 if __name__ == "__main__":
     app.run(debug=True)

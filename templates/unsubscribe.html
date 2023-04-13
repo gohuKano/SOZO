@@ -25,19 +25,13 @@
 
     <section>
 
-        <div class="error-container">
+        <div class="unsubscribe-container">
             <h2>Se désabonner</h2>
             <h4>Pour se désabonner de la newslatter veuillez indiquer l'adresse mail utilisée</h4>
-            <p>
-                Nous n'avons pas pu trouver la page que vous cherchez. Il se peut qu'elle ait été supprimée, modifiée ou temporairement indisponible.
-            </p>
-
-            <div>
-                <span class="header__nav__container">
-                    <a href="/" class="header__nav__container__text header__nav__container__text--notSOZO">Retour à la Page d'Acceuil</a>
-                </span class="container-test">
-                <span class="header__nav__line"></span>
-            </div>
+            <form method="POST" class="unsubscribe-container__form" action="unsubscribe_process">
+                <input type="email" name="email" class="unsubscribe-container__form--email">
+                <input type="submit" class="unsubscribe-container__form--submit">
+            </form>
         </div>
 
     </section>
