@@ -1,9 +1,3 @@
-# TODO : 
-# quand le client est connecté, lui faire comprendre
-# en changeant l'icone de connexion ou autre methode
-# lorsqu'il est connecté, lui offrir la possibilité 
-# de voir les settings ( adresse, ... ) de son compte.
-
 # TODO :
 # verifier les données rentrer par l'utilisateur : escape
 # pour eviter les attaques par injections
@@ -11,16 +5,11 @@
 # si il ne respecte pas les conditions pour le mot de passe
 
 # TODO :
-# ajouter bouton pour accpter la politique de confidentialité
-# accepter la newsletter --> Faire désabonnement
-# voir Binance
-
-# TODO :
 # ajouter un easter egg dans l'erreur 404
 # ex google : "Oops, il n'y a rien a voir ici"
 
 # TODO :
-# ajouter la possibilité de se connecté avec google ou apple
+# ajouter la possibilité de se connecter avec google ou apple
 # compliqué pour le moment car il faut avoir numéro NUND --> voir site apple developer
 
 # TODO :
@@ -151,10 +140,6 @@ def unsubscribe_process():
 
             print(email)
 
-            # if user_has_account(get_db_connection(), email):
-            #     name_of_user = get_user_data(get_db_connection(), email, 1)
-            #     print(name_of_user)
-            #     session['name_of_user'] = name_of_user
             #  Faire suppression BDD newslatter
 
             return redirect(url_for("index"))

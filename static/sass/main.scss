@@ -638,6 +638,12 @@ body {
   }
 }
 
+.collection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 // ---------------------------------------
 // ---- style for the register page ------

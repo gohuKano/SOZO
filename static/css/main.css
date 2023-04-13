@@ -586,6 +586,13 @@ body.show {
   font-size: 1.2em;
 }
 
+.collection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .register {
   margin-top: 80px;
 }
