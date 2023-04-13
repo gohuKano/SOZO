@@ -38,7 +38,7 @@ app = Flask(__name__)
 app.secret_key = 'sozo'
 
 NAME_OF_DB = "sozo_db"
-USERNAME = "hugo_az"
+USERNAME = "postgres"
 PASSWORD_OF_DB = "sozo"
 
 def get_db_connection():
@@ -77,7 +77,7 @@ def register_process():
                     # every precaution taken the data can be written
 
                     # write the registration in the db
-                    # write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
+                    write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
                     # every thing has been handled well
                     # the user can be redirected
                     print("write into database")
@@ -110,9 +110,12 @@ def login_process():
             if user_has_account(get_db_connection(), email, password):
                 name_of_user = get_user_data(get_db_connection(), email, password, 1)
                 print(name_of_user)
-                session['name_of_user'] = name_of_user
 
-            return redirect(url_for("index"))
+                session['name_of_user'] = name_of_user
+                return redirect(url_for("index"))
+            else:
+                return redirect(url_for("index"))
+            
         except Exception as e:
             print(e)
             return redirect(url_for("index"))

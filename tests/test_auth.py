@@ -58,8 +58,6 @@ def write_user_registration_in_db(get_db_connection, prenom, nom, email, passwor
     )
     conn.commit()
 
-    print("data write into database")
-
 def user_has_account(get_db_connection, email, password):
     '''
     check if the email already exists in the database

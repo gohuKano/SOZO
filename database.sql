@@ -19,8 +19,8 @@ CREATE TABLE products (
 
 CREATE TABLE cart (
     cart_id SERIAL PRIMARY KEY,
-    client_id INTEGER REFERENCES client(id),
-    product_id INTEGER REFERENCES product(id)
+    client_id INTEGER,
+    product_id INTEGER
 );
 
 CREATE TABLE newsletter_subscribers (
