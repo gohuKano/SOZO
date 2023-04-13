@@ -152,7 +152,7 @@ def subscribe_to_newslatter():
 
 @app.route("/unsubscribe")
 def unsubscribe():
-    return render_template("auth/unsubscribe.html")
+    return render_template("newsletter/unsubscribe.html")
 
 @app.route("/unsubscribe_process", methods=["POST"])
 def unsubscribe_process():
