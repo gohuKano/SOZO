@@ -76,7 +76,9 @@ def register_process():
                 if email_match(email, confirm_email) and password_match(password, confirm_password):
                     # the email and password match eachother
                     # every precaution taken the data can be written
-                    write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
+
+                    # write the registration in the db
+                    # write_user_registration_in_db(get_db_connection(), prenom, nom, email, password)
                     # every thing has been handled well
                     # the user can be redirected
                     print("write into database")
@@ -118,15 +120,6 @@ def login_process():
     else:
         return redirect(url_for("index"))
 
-@app.errorhandler(404)
-def page_not_found(e):
-    print(e)
-    return render_template('404.html'), 404
-
-@app.route("/", methods = ["GET", "POST"])
-def index():
-    return render_template("index.html")
-
 @app.route("/unsubscribe")
 def unsubscribe():
     return render_template("unsubscribe.html")
@@ -137,10 +130,9 @@ def unsubscribe_process():
         try:
             # getting data from the user
             email = escape(request.form.get("email"))
-
             print(email)
-
-            #  Faire suppression BDD newslatter
+            
+            #  Faire suppression db newslatter
 
             return redirect(url_for("index"))
         except Exception as e:
@@ -148,6 +140,15 @@ def unsubscribe_process():
             return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
+    
+@app.errorhandler(404)
+def page_not_found(e):
+    print(e)
+    return render_template('404.html'), 404
+
+@app.route("/", methods = ["GET", "POST"])
+def index():
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
