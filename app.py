@@ -28,11 +28,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import psycopg2
 from markupsafe import escape
+
+# our libs
 from tests.test_auth import *
-# functions, from test_auth that need the database connection :
-# user_already_register(get_db_connection, email)
-# write_user_registration_in_db(get_db_connection, prenom, nom, email, password)
-# user_has_account(get_db_connection, email, password)
+from tests.test_newslatter import *
 
 
 app = Flask(__name__)
@@ -119,10 +118,38 @@ def login_process():
             return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
+    
+@app.route("/subscribe_to_newslatter", methods=["POST"])
+def subscribe_to_newslatter():
+    if request.method == "POST":
+        try:
+            # getting data from the user
+            email = escape(request.form.get("email"))
+            prenom = escape(request.form.get("prenom"))
+            nom = escape(request.form.get("nom"))
+
+            if not verify_subscription_newslatter(get_db_connection(), email, prenom, nom):
+                # the user wants to subscribe and is not already subscribed
+                # on peut donc l'inscrire
+                # ecris dans la db, table newsletter
+                subscription_to_newslatters(get_db_connection(), prenom, nom, email)
+                print("the user has subscribed")
+                return redirect(url_for("index.html"))
+            else:
+                # le user veut s'inscrire MAIS est deja inscrit
+                error_message = "le user veut s'inscrire MAIS est deja inscrit"
+                print(error_message)
+                return redirect(url_for("index.html"), erro_message = error_message)
+
+        except Exception as e:
+            print(e)
+            return redirect(url_for("index.html"))
+    else:
+        return redirect(url_for("index.html"))
 
 @app.route("/unsubscribe")
 def unsubscribe():
-    return render_template("unsubscribe.html")
+    return render_template("auth/unsubscribe.html")
 
 @app.route("/unsubscribe_process", methods=["POST"])
 def unsubscribe_process():
@@ -130,16 +157,25 @@ def unsubscribe_process():
         try:
             # getting data from the user
             email = escape(request.form.get("email"))
-            print(email)
+            prenom = escape(request.form.get("prenom"))
+            nom = escape(request.form.get("nom"))
             
-            #  Faire suppression db newslatter
-
-            return redirect(url_for("index"))
+            if verify_subscription_newslatter(get_db_connection(), email, prenom, nom):
+                # l'user est bien deja subscribed
+                # faire suppression de l'user dans la table newslatter:
+                remove_from_newsletter(get_db_connection(), email)
+                print("the user has unsubscribe")
+                # user s'est desabonné de la newslatter
+                return redirect(url_for("index"))
+            else:
+                # l'user n'etait pas inscrit a la newslatter
+                print("the user was not subscribe")
+                return redirect(url_for("unsubscribe"))
         except Exception as e:
             print(e)
             return redirect(url_for("index"))
     else:
-        return redirect(url_for("index"))
+        return redirect(url_for("unsubscribe"))
     
 @app.errorhandler(404)
 def page_not_found(e):
