@@ -75,7 +75,12 @@
         </div>
     </nav>
     <div class="header__function">
-        <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
+        {% if not 'name_of_user' in session  %}
+            <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
+        {% endif %}
+        {% if 'name_of_user' in session  %}
+            <button id="button-form" class="btn btn__profile" onclick="alert('connected')"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
+        {% endif %}
         <button type="button" class="btn" onclick=""><img src="../static/images/header/cart.svg" alt="cart logo"></button>
         <div>
             {% if 'name_of_user' in session %}
