@@ -1,12 +1,12 @@
 '''
-Python file of all functions related to the newslatter
+Python file of all functions related to the newsletter
 '''
 
-def verify_subscription_newslatter(get_db_connection, email, prenom, nom):
+def verify_subscription_newsletter(get_db_connection, email, prenom, nom):
     '''
     function that verifies if the user is already registered in the newsletter
     '''
-    conn = get_db_connection()
+    conn = get_db_connection
     cur = conn.cursor()
     cur.execute(
         """
@@ -24,7 +24,7 @@ def verify_subscription_newslatter(get_db_connection, email, prenom, nom):
         return 0
 
 
-def subscription_to_newslatters(get_db_connection, prenom, nom, email):
+def subscription_to_newsletters(get_db_connection, prenom, nom, email):
     '''
     function that will write the data into the newsletter table
     '''
@@ -43,7 +43,7 @@ def remove_from_newsletter(get_db_connection, email, prenom, nom):
     '''
     function that removes the email address, prenom et nom, from the db
     '''
-    conn = get_db_connection()
+    conn = get_db_connection
     cur = conn.cursor()
     
     cur.execute(

@@ -596,7 +596,7 @@ body.show {
   max-width: 50vw;
 }
 
-.newslatter {
+.newsletter {
   background-image: url(../images/main/background.png);
   padding: 80px 0;
   display: flex;
@@ -604,14 +604,14 @@ body.show {
   align-items: center;
   color: #FFF;
 }
-.newslatter h2 {
+.newsletter h2 {
   font-size: 2em;
 }
-.newslatter p {
+.newsletter p {
   padding: 30px 0;
   font-size: 1.2em;
 }
-.newslatter__form {
+.newsletter__form {
   font-size: 1.2em;
   display: flex;
   flex-direction: column;
@@ -619,16 +619,16 @@ body.show {
   width: 600px;
 }
 @media (max-width: 800px) {
-  .newslatter__form {
+  .newsletter__form {
     width: 60vw;
   }
 }
-.newslatter__form input {
+.newsletter__form input {
   border: none;
   border-radius: 30px;
   padding: 20px 30px;
 }
-.newslatter__form input:focus {
+.newsletter__form input:focus {
   outline: none !important;
 }
 

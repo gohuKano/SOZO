@@ -31,7 +31,7 @@ from markupsafe import escape
 
 # our libs
 from tests.test_auth import *
-from tests.test_newslatter import *
+from tests.test_newsletter import *
 
 
 app = Flask(__name__)
@@ -122,8 +122,8 @@ def login_process():
     else:
         return redirect(url_for("index"))
     
-@app.route("/subscribe_to_newslatter", methods=["POST"])
-def subscribe_to_newslatter():
+@app.route("/subscribe_to_newsletter", methods=["POST"])
+def subscribe_to_newsletter():
     if request.method == "POST":
         try:
             # getting data from the user
@@ -131,24 +131,24 @@ def subscribe_to_newslatter():
             prenom = escape(request.form.get("prenom"))
             nom = escape(request.form.get("nom"))
 
-            if not verify_subscription_newslatter(get_db_connection(), email, prenom, nom):
+            if not verify_subscription_newsletter(get_db_connection(), email, prenom, nom):
                 # the user wants to subscribe and is not already subscribed
                 # on peut donc l'inscrire
                 # ecris dans la db, table newsletter
-                subscription_to_newslatters(get_db_connection(), prenom, nom, email)
+                subscription_to_newsletters(get_db_connection(), prenom, nom, email)
                 print("the user has subscribed")
-                return redirect(url_for("index.html"))
+                return redirect(url_for("index"))
             else:
                 # le user veut s'inscrire MAIS est deja inscrit
                 error_message = "le user veut s'inscrire MAIS est deja inscrit"
                 print(error_message)
-                return redirect(url_for("index.html"), erro_message = error_message)
+                return redirect(url_for("index"), erro_message = error_message)
 
         except Exception as e:
             print(e)
-            return redirect(url_for("index.html"))
+            return redirect(url_for("index"))
     else:
-        return redirect(url_for("index.html"))
+        return redirect(url_for("index"))
 
 @app.route("/unsubscribe")
 def unsubscribe():
@@ -163,15 +163,15 @@ def unsubscribe_process():
             prenom = escape(request.form.get("prenom"))
             nom = escape(request.form.get("nom"))
             
-            if verify_subscription_newslatter(get_db_connection(), email, prenom, nom):
+            if verify_subscription_newsletter(get_db_connection(), email, prenom, nom):
                 # l'user est bien deja subscribed
-                # faire suppression de l'user dans la table newslatter:
+                # faire suppression de l'user dans la table newsletter:
                 remove_from_newsletter(get_db_connection(), email)
                 print("the user has unsubscribe")
-                # user s'est desabonné de la newslatter
+                # user s'est desabonné de la newsletter
                 return redirect(url_for("index"))
             else:
-                # l'user n'etait pas inscrit a la newslatter
+                # l'user n'etait pas inscrit a la newsletter
                 print("the user was not subscribe")
                 return redirect(url_for("unsubscribe"))
         except Exception as e:

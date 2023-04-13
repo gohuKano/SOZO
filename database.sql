@@ -26,6 +26,7 @@ CREATE TABLE cart (
 CREATE TABLE newsletter_subscribers (
 	newsletter_id serial PRIMARY KEY,
 	prenom VARCHAR(255) NOT NULL,
+	nom VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL
 );
 
