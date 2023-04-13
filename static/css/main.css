@@ -592,6 +592,45 @@ body.show {
   justify-content: center;
   align-items: center;
 }
+.collection img {
+  max-width: 50vw;
+}
+
+.newslatter {
+  background-image: url(../images/main/background.png);
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FFF;
+}
+.newslatter h2 {
+  font-size: 2em;
+}
+.newslatter p {
+  padding: 30px 0;
+  font-size: 1.2em;
+}
+.newslatter__form {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 600px;
+}
+@media (max-width: 800px) {
+  .newslatter__form {
+    width: 60vw;
+  }
+}
+.newslatter__form input {
+  border: none;
+  border-radius: 30px;
+  padding: 20px 30px;
+}
+.newslatter__form input:focus {
+  outline: none !important;
+}
 
 .register {
   margin-top: 80px;
