@@ -174,7 +174,7 @@ body {
     }
 
   &__btn {
-    padding-right: 10px;
+    margin-right: 30px;
     &__profile {
       background-color: $color-primary;
       border: none;
@@ -376,6 +376,90 @@ body {
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.logged-box-blur{
+
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  transition:visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
+  height: 100%;
+  width: 100%;
+  background-color: #242026;
+  &.show {
+    visibility: visible;
+    opacity: 0.6;
+    transition:visibility 0s linear 0s, opacity 0.3s ease-in-out;
+  }
+}
+
+
+.logged-box {
+  visibility: hidden;
+  z-index: 4;
+  position: fixed;
+  opacity: 0;
+  transition:visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #242026;
+  box-shadow: 0 15px 25px $color-primary;
+  border-radius: 10px;
+@media (max-width: 400px) {
+  width: 95vw;
+}
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0s;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
+  h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  .user-box {
+    label {
+      margin-top: -20px;
+      position: relative;
+      left: 0;
+      top: -60px;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      pointer-events: none;
+      transition: .5s;
+    }
+    input {
+      position: relative;
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
   }
 }
 
