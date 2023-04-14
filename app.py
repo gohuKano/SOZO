@@ -139,7 +139,7 @@ def subscribe_to_newsletter():
             prenom = escape(request.form.get("prenom"))
             nom = escape(request.form.get("nom"))
 
-            if verify_subscription_newsletter(get_db_connection(), email):
+            if not verify_subscription_newsletter(get_db_connection(), email):
                 # the user wants to subscribe and is not already subscribed
                 # on peut donc l'inscrire
                 # ecris dans la db, table newsletter
