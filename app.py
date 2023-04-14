@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import psycopg2
 from markupsafe import escape
+from datetime import timedelta
 
 # our libs
 from tests.test_auth import *
@@ -8,11 +9,13 @@ from tests.test_newsletter import *
 
 
 app = Flask(__name__)
-app.secret_key = 'sozo'
 
 NAME_OF_DB = "sozo_db"
 USERNAME = "postgres"
 PASSWORD_OF_DB = "sozo"
+
+app.secret_key = 'sozo'
+app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=5)
 
 
 def get_db_connection():
