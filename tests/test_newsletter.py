@@ -2,7 +2,7 @@
 Python file of all functions related to the newsletter
 '''
 
-def verify_subscription_newsletter(get_db_connection, email, prenom, nom):
+def verify_subscription_newsletter(get_db_connection, email):
     '''
     function that verifies if the user is already registered in the newsletter
     '''
@@ -11,9 +11,9 @@ def verify_subscription_newsletter(get_db_connection, email, prenom, nom):
     cur.execute(
         """
         SELECT email FROM newsletter_subscribers
-        WHERE email = %s AND prenom = %s AND nom = %s
+        WHERE email = %s
         """,
-        (email, prenom, nom)
+        (email,)
     )
     result = cur.fetchone()
     if result:
@@ -22,7 +22,6 @@ def verify_subscription_newsletter(get_db_connection, email, prenom, nom):
     else:
         # return 0 : the user is not registered
         return 0
-
 
 def subscription_to_newsletters(get_db_connection, prenom, nom, email):
     '''
@@ -35,11 +34,11 @@ def subscription_to_newsletters(get_db_connection, prenom, nom, email):
         INSERT INTO newsletter_subscribers (prenom, nom, email)
         VALUES (%s, %s, %s)
         """,
-        (prenom, nom, email)
+        (prenom, nom, email,)
     )
     conn.commit()
 
-def remove_from_newsletter(get_db_connection, email, prenom, nom):
+def remove_from_newsletter(get_db_connection, email):
     '''
     function that removes the email address, prenom et nom, from the db
     '''
@@ -49,7 +48,8 @@ def remove_from_newsletter(get_db_connection, email, prenom, nom):
     cur.execute(
         """
         DELETE FROM newsletter_subscribers
-        WHERE email = %s AND prenom = %s AND nom = %s
+        WHERE email = %s
         """,
-        (email, prenom, nom)
+        (email,)
     )
+    conn.commit()
