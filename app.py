@@ -16,8 +16,9 @@ PASSWORD_OF_DB = "sozo"
 
 # cookies parametres
 app.secret_key = 'sozo'
+app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_REFRESH_EACH_REQUEST'] = True
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=5)
 
 def get_db_connection():
     conn = psycopg2.connect(
@@ -92,10 +93,17 @@ def login_process():
             # getting data from the user
             email = escape(request.form.get("e-mail"))
             password = escape(request.form.get("password"))
+            login_checkbox = bool(request.form.get("login_checkbox"))
             # checking if the user has an account
             if user_has_account(get_db_connection(), email, password):
                 session['prenom'] = get_user_data(get_db_connection(), email, password, 1)
                 session['nom']  = get_user_data(get_db_connection(), email, password, 2)
+                if login_checkbox:
+                    app.config['SESSION_PERMANENT'] = True
+                    app.config['SESSION_USE_SIGNER'] = True
+                    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=365)
+                    print('test')
+                    return redirect(url_for("index"))
                 return redirect(url_for("index"))
             else:
                 return redirect(url_for("index"))
