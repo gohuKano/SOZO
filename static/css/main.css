@@ -882,6 +882,14 @@ body.show {
   .newsletter__form {
     width: 60vw;
   }
+  .newsletter__form input {
+    padding: 5px 10px !important;
+  }
+}
+@media (max-width: 1300px) {
+  .newsletter__form input {
+    padding: 5px 10px !important;
+  }
 }
 .newsletter__form input {
   border: none;

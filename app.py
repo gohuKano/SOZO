@@ -102,7 +102,6 @@ def login_process():
                     app.config['SESSION_PERMANENT'] = True
                     app.config['SESSION_USE_SIGNER'] = True
                     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=365)
-                    print('test')
                     return redirect(url_for("index"))
                 return redirect(url_for("index"))
             else:

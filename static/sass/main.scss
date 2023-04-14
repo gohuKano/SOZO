@@ -933,6 +933,14 @@ body {
     width: 600px;
     @media (max-width:800px){
       width: 60vw;
+      input {
+        padding: 5px 10px !important;
+      }
+    }
+    @media (max-width:1300px){
+      input {
+        padding: 5px 10px !important;
+      }
     }
     input {
       border: none;

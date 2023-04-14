@@ -64,6 +64,7 @@ const enable_burger = (e) => {
 };
 
 // Temps en millisecondes avant que la boîte de dialogue apparaisse
+// boite de dialogue de l'inscription a la newsletter
 const DELAY = 1000;
 
 // Fonction pour afficher la boîte de dialogue
