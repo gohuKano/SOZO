@@ -17,7 +17,7 @@ PASSWORD_OF_DB = "sozo"
 # cookies parametres
 app.secret_key = 'sozo'
 app.config['SESSION_REFRESH_EACH_REQUEST'] = True
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 
 def get_db_connection():
     conn = psycopg2.connect(
@@ -94,10 +94,8 @@ def login_process():
             password = escape(request.form.get("password"))
             # checking if the user has an account
             if user_has_account(get_db_connection(), email, password):
-                prenom = get_user_data(get_db_connection(), email, password, 1)
-                nom = get_user_data(get_db_connection(), email, password, 2)
-                session['prenom'] = prenom
-                session['nom'] = nom
+                session['prenom'] = get_user_data(get_db_connection(), email, password, 1)
+                session['nom']  = get_user_data(get_db_connection(), email, password, 2)
                 return redirect(url_for("index"))
             else:
                 return redirect(url_for("index"))
@@ -106,7 +104,24 @@ def login_process():
             return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
-    
+
+@app.route("/logout_process", methods=["POST"])
+def logout_process():
+    if request.method == "POST":
+        try:
+            # kill all session element if there is some
+            if len(session) > 0:
+                for element in list(session.keys()):
+                    session.pop(element)
+                return redirect(url_for("index"))
+            else:
+                return redirect(url_for("index"))
+        except Exception as e:
+            print(e)
+            return redirect(url_for("index"))
+    else:
+        return redirect(url_for("index"))
+
 @app.route("/subscribe_to_newsletter", methods=["POST"])
 def subscribe_to_newsletter():
     if request.method == "POST":

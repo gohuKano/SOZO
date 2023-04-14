@@ -9,12 +9,12 @@
         <h2>SE CONNECTER</h2>
         <form method="POST" action="login_process">
             <div class="user-box">
-                <input type="text" id="" name="e-mail" required="">
+                <input type="text" id="" name="e-mail" required>
                 <label>E-mail</label>
             </div>
             
             <div class="user-box">
-                <input type="password" name="password" required="">
+                <input type="password" name="password" required>
                 <label>Mot de passe</label>
             </div>
 
@@ -29,6 +29,15 @@
 
             </div>
         </form>
+    </div>
+</section>
+<section>
+    <div class="logged-box-blur" id="logged-box-blur"></div>
+    <div id="logged-box" class="logged-box">
+        <h2>Bonjour, {{session['prenom']}}</h2>
+        <a href="">Votre compte</a>
+        <a href="">Vos commandes</a>
+        <form method="POST" action="logout_process"><input type="submit" value="Déconnexion"></form>
     </div>
 </section>
 <!----------------------------------------->
@@ -75,10 +84,10 @@
         </div>
     </nav>
     <div class="header__btn">
-        {% if not 'nom' in session  %}
-            <button id="button-form" class="header__btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
+        {% if 'nom' in session or 'prenom' in session %}
+            <button id="button-form" class="header__btn__profile--connected" onclick="enable_loggedBox()"><div>{{session['prenom'][0]}}{{session['nom'][0]}}</div></button>
         {% else %}
-            <button id="button-form" class="header__btn__profile--connected" onclick="alert('connected')"><div>{{session['prenom'][0]}}{{session['nom'][0]}}</div></button>
+            <button id="button-form" class="header__btn__profile" onclick="enable_loginBox()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
         {% endif %}
         <button type="button" class="header__btn__profile--cart" onclick=""><img src="../static/images/header/cart.svg" alt="cart logo"></button>
     </div>
@@ -101,6 +110,5 @@
     </nav>
 </div>
 
-<script src="../../static/js/head.js"></script>
 
 {% endmacro %}

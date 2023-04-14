@@ -375,6 +375,9 @@ body.show {
   visibility: hidden;
   z-index: 4;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
   transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
   top: 50%;
@@ -382,6 +385,7 @@ body.show {
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
+  color: #FFF;
   background: #242026;
   box-shadow: 0 15px 25px #6168a2;
   border-radius: 10px;
@@ -407,28 +411,43 @@ body.show {
   color: #fff;
   text-align: center;
 }
-.logged-box .user-box label {
-  margin-top: -20px;
-  position: relative;
-  left: 0;
-  top: -60px;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: 0.5s;
+.logged-box a {
+  text-decoration: none;
+  color: #FFF;
+  padding: 20px 0;
 }
-.logged-box .user-box input {
+.logged-box a:hover {
+  text-decoration: underline;
+  color: #FFF;
+}
+.logged-box form {
+  margin-top: 30px !important;
+  width: 80%;
+  color: #FFF;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border: 1px solid #fff;
+  margin: auto;
+  background-color: #242026;
+}
+.logged-box form input {
   position: relative;
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
-  margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
+}
+.logged-box form:hover {
+  background: #3a3f63;
+  color: #fff;
+  box-shadow: 0 0 2px #6168a2, 0 0 25px, 0 0 50px #6168a2, 0 0 100px #6168a2;
 }
 
 .mobile-only__nav {
