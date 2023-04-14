@@ -7,16 +7,17 @@ from datetime import timedelta
 from tests.test_auth import *
 from tests.test_newsletter import *
 
-
 app = Flask(__name__)
 
+# database parametres
 NAME_OF_DB = "sozo_db"
 USERNAME = "postgres"
 PASSWORD_OF_DB = "sozo"
 
+# cookies parametres
 app.secret_key = 'sozo'
-app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=5)
-
+app.config['SESSION_REFRESH_EACH_REQUEST'] = True
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
 
 def get_db_connection():
     conn = psycopg2.connect(
