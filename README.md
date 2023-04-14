@@ -18,6 +18,7 @@ TODO :
 TODO :
     faire diffinitivement disparaitre le popup newsletter
     quand l'user click sur le bouton pour la supp
+    ( soit cookies, soit un gros TIMOUT )
 
 TODO : 
     faire responsive de la page unsubscribed et reprendre son design
