@@ -41,10 +41,21 @@
 <section>
     <div class="logged-box-blur" id="logged-box-blur"></div>
     <div id="logged-box" class="logged-box">
-        <h2>Bonjour, {{session['prenom']}}</h2>
-        <a href="#">Votre compte</a>
-        <a href="#">Vos commandes</a>
-        <form method="POST" action="logout_process"><input type="submit" value="Déconnexion"></form>
+
+        {% set images = ['../../static/images/collection/foret.jpg', '../../static/images/collection/ocean.jpg', '../../static/images/collection/animal.webp'] %}
+        {% set chosen_image = images|random %}
+        <img class="logged-box-img"  src="{{ chosen_image }}" alt="Collection Image">
+
+        <div class="logged-box-text">
+            <h3>
+                Bonjour {{session['prenom']}}, que souhaitez-vous faire ?
+            </h3>
+            <h5><a href="#">Mon compte</a></h5>
+            <h5><a href="#">Mes commandes</a></h5>
+            <form method="POST" action="logout_process">
+                <input type="submit" value="Déconnexion">
+            </form>
+        </div>
     </div>
 </section>
 <!----------------------------------------->

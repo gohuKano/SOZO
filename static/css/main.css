@@ -472,13 +472,13 @@ body.show {
   z-index: 4;
   position: fixed;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   opacity: 0;
   transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
   top: 50%;
   left: 50%;
-  width: 400px;
+  width: 700px;
   padding: 40px;
   transform: translate(-50%, -50%);
   color: #FFF;
@@ -486,9 +486,24 @@ body.show {
   box-shadow: 0 15px 25px #6168a2;
   border-radius: 10px;
 }
-@media (max-width: 400px) {
+.logged-box .logged-box-img {
+  height: 300px;
+}
+.logged-box .logged-box-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 700px) {
   .logged-box {
     width: 95vw;
+  }
+  .logged-box .logged-box-text {
+    width: 100%;
+  }
+  .logged-box .logged-box-img {
+    display: none;
   }
 }
 .logged-box.show {
@@ -501,7 +516,7 @@ body.show {
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.logged-box h2 {
+.logged-box h3 {
   margin: 0 0 30px;
   padding: 0;
   color: #fff;
@@ -527,7 +542,6 @@ body.show {
   transition: 0.5s;
   letter-spacing: 4px;
   border: 1px solid #fff;
-  margin: auto;
   background-color: #242026;
 }
 .logged-box form input {

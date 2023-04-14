@@ -1,10 +1,4 @@
 TODO :
-    verifier les données rentrer par l'utilisateur : escape
-    pour eviter les attaques par injections
-    refuser la validation du mdp du user 
-    si il ne respecte pas les conditions pour le mot de passe
-
-TODO :
     ajouter un easter egg dans l'erreur 404
     ex google : "Oops, il n'y a rien a voir ici"
 
@@ -20,3 +14,10 @@ TODO :
 
 TODO :
     Faire cookies pro (pub ect) voir stripe (durée de vie)
+
+TODO :
+    faire diffinitivement disparaitre le popup newsletter
+    quand l'user click sur le bouton pour la supp
+
+TODO : 
+    faire responsive de la page unsubscribed et reprendre son design
