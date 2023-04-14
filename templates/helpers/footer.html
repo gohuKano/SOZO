@@ -2,15 +2,20 @@
 
 <footer >
     <div id="newsletter-popup">
+        {% set images = ['../../static/images/collection/foret.jpg', '../../static/images/collection/ocean.jpg', '../../static/images/collection/animal.webp'] %}
+        {% set chosen_image = images|random %}
+        <img class="logged-box-img"  src="{{ chosen_image }}" alt="Collection Image">
+
         <h2>
             Inscrivez-vous à notre newsletter 
             <br>et recevez -10% sur votre première commande.
         </h2>
+
         <form>
-          <input type="email" placeholder="Entrez votre adresse email" required>
+          <input type="email" placeholder="Adresse email" required>
           <button type="submit">S'inscrire</button>
         </form>
-        <span class="close" onclick="closePopup()">X</span>
+        <span class="close-btn" onclick="closePopup()">&times;</span>
     </div>
     
     <div class="footer">

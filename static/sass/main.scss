@@ -888,9 +888,29 @@ body {
   left: 1%;
   background-color: #ffffff;
   border: 1px solid #cccccc;
+  border-radius: 3px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
   z-index: 999;
+  width: 30vw;
+}
+
+#newsletter-popup .logged-box-img {
+  height: 300px;
+  margin-bottom: 10px;
+  width: 25vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#newsletter-popup .close-btn {
+  position: absolute;
+  top: -3px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #newsletter-popup h2 {
@@ -921,21 +941,13 @@ body {
   cursor: pointer;
 }
 
-#newsletter-popup .close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}  
 .newsletter {
   background-image: url(../images/main/background.png);
   padding: 80px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #FFF;
+  color: #fff;
   h2 {
     font-size: 2em;
   }
