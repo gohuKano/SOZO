@@ -74,19 +74,13 @@
             <span class="header__nav__line"></span>
         </div>
     </nav>
-    <div class="header__function">
+    <div class="header__btn">
         {% if not 'name_of_user' in session  %}
-            <button id="button-form" class="btn btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
-        {% endif %}
-        {% if 'name_of_user' in session  %}
-            <button id="button-form" class="btn btn__profile" onclick="alert('connected')"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
+            <button id="button-form" class="header__btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
+        {% else %}
+            <button id="button-form" class="header__btn__profile--connected" onclick="alert('connected')"><img src="../static/images/header/profile.svg" alt="profile logo"><p>{{ session['name_of_user'] }}</p></button>
         {% endif %}
         <button type="button" class="btn" onclick=""><img src="../static/images/header/cart.svg" alt="cart logo"></button>
-        <div>
-            {% if 'name_of_user' in session %}
-                <p>{{ session['name_of_user'] }}</p>
-            {% endif %}
-        </div>
     </div>
 </header>
 

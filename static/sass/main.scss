@@ -173,8 +173,15 @@ body {
       font-size: 40px;
     }
 
-  &__function {
+  &__btn {
     padding-right: 10px;
+    &__profile {
+      &--connected {
+        background-color: $color-primary;
+        border: none;
+        height: 50px;
+      }
+    }
     img {
       height: 25px;
       transition: transform 200ms;

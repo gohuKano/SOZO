@@ -152,14 +152,19 @@ body.show {
 .header--SOZO {
   font-size: 40px;
 }
-.header__function {
+.header__btn {
   padding-right: 10px;
 }
-.header__function img {
+.header__btn__profile--connected {
+  background-color: #6168a2;
+  border: none;
+  height: 50px;
+}
+.header__btn img {
   height: 25px;
   transition: transform 200ms;
 }
-.header__function img:hover {
+.header__btn img:hover {
   transform: scale(1.2);
   transition: transform 200ms;
 }
