@@ -8,21 +8,22 @@
     <div id="login-box" class="login-box">
         <h2>SE CONNECTER</h2>
         <form method="POST" action="login_process">
-            <div class="user-box">
+            <div class="login-box__input">
                 <input type="text" id="" name="e-mail" required>
                 <label>E-mail</label>
             </div>
-            
-            <div class="user-box">
+            <div class="login-box__input">
                 <input type="password" name="password" required>
                 <label>Mot de passe</label>
+                <div class="login-box__input__img">
+                    <img id="login-box__input__img--hide" class="login-box__input__img--hide" src="../../static/images/header/eye-hide.webp" alt="profile logo" onclick="show_psw_log()">
+                    <img id="login-box__input__img--show"  class="login-box__input__img--show" src="../../static/images/header/eye-show.webp" alt="profile logo" onclick="hide_psw_log()">
+                </div>
+                
             </div>
-
-            <div class="button-form">
-
-                <input type="submit" id="submit" value="Valider">
-
-                <div id="register">
+            <div class="login-box__input__btn">
+                <input type="submit" class="login-box__input__btn--submit" value="Valider">
+                <div class="login-box__input__btn--register">
                     Pas encore de compte ?
                     <a href="{{ url_for('register')}}">S'inscrire</a>
                 </div>
@@ -31,6 +32,7 @@
         </form>
     </div>
 </section>
+
 <section>
     <div class="logged-box-blur" id="logged-box-blur"></div>
     <div id="logged-box" class="logged-box">

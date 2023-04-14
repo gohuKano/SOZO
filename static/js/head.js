@@ -45,6 +45,18 @@ document.addEventListener('click', (event) => {
   }
 });
 
+const show_psw_log = (e) => {
+  document.getElementById('login-box__input__img--hide').classList.add("show");
+  document.getElementById("login-box__input__img--show").classList.add("show");
+  document.querySelector('input[name="password"]').type = "text";
+};
+
+const hide_psw_log = (e) => {
+  document.getElementById('login-box__input__img--hide').classList.remove("show");
+  document.getElementById("login-box__input__img--show").classList.remove("show");
+  document.querySelector('input[name="password"]').type = "password";
+};
+
 // to open responsive menu ( big burger mmmhhhhhhhhhhhhh )
 const enable_burger = (e) => {
   document.getElementById('burger').classList.toggle("open");

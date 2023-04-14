@@ -266,7 +266,7 @@ body.show {
   color: #fff;
   text-align: center;
 }
-.login-box .user-box label {
+.login-box__input label {
   margin-top: -20px;
   position: relative;
   left: 0;
@@ -277,7 +277,7 @@ body.show {
   pointer-events: none;
   transition: 0.5s;
 }
-.login-box .user-box input {
+.login-box__input input {
   position: relative;
   width: 100%;
   padding: 10px 0;
@@ -289,16 +289,47 @@ body.show {
   outline: none;
   background: transparent;
 }
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -85px;
-  left: 0;
-  color: #6168a2;
-  font-size: 12px;
+.login-box__input__img {
+  position: absolute;
+  left: 83%;
+  top: 53%;
+  cursor: pointer;
 }
-
-#submit {
+.login-box__input__img img {
+  background-color: #242026;
+  height: 20px;
+  fill: #FFF;
+}
+.login-box__input__img--show {
+  position: inherit;
+  top: 0;
+  visibility: hidden;
+}
+.login-box__input__img--show.show {
+  visibility: visible;
+}
+.login-box__input__img--hide {
+  position: inherit;
+  top: 0;
+}
+.login-box__input__img--hide.show {
+  visibility: hidden;
+}
+.login-box__input__btn {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+@media (max-width: 400px) {
+  .login-box__input__btn {
+    flex-direction: column;
+  }
+  .login-box__input__btn div {
+    padding-top: 20px;
+    width: 60vw !important;
+  }
+}
+.login-box__input__btn--submit {
   padding: 10px 20px;
   color: #FFF;
   font-size: 16px;
@@ -311,29 +342,12 @@ body.show {
   margin: auto;
   background-color: #242026;
 }
-
-#submit:hover {
+.login-box__input__btn--submit:hover {
   background: #3a3f63;
   color: #fff;
   box-shadow: 0 0 2px #6168a2, 0 0 25px, 0 0 50px #6168a2, 0 0 100px #6168a2;
 }
-
-.button-form {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-@media (max-width: 400px) {
-  .button-form {
-    flex-direction: column;
-  }
-  .button-form div {
-    padding-top: 20px;
-    width: 60vw !important;
-  }
-}
-
-#register {
+.login-box__input__btn--register {
   font-size: 14px;
   text-decoration: none;
   color: #fff;
@@ -341,14 +355,20 @@ body.show {
   width: 60%;
   text-align: center;
 }
-
-#register a {
+.login-box__input__btn--register a {
   margin: auto;
   color: #6168a2;
   text-decoration: none;
 }
-#register a:hover {
+.login-box__input__btn--register a:hover {
   text-decoration: underline;
+}
+.login-box .login-box__input input:focus ~ label,
+.login-box .login-box__input input:valid ~ label {
+  top: -85px;
+  left: 0;
+  color: #6168a2;
+  font-size: 12px;
 }
 
 .logged-box-blur {
@@ -750,72 +770,6 @@ body.show {
 .register {
   margin-top: 80px;
 }
-.register .register__box__img_1 {
-  position: absolute;
-  top: 590px;
-  left: 95%;
-  cursor: pointer;
-}
-.register .register__box__img_1 img {
-  height: 20px;
-}
-.register .register__box__img_1--show {
-  position: inherit;
-  top: 0;
-  visibility: hidden;
-}
-.register .register__box__img_1--show.show {
-  visibility: visible;
-}
-.register .register__box__img_1--hide {
-  position: inherit;
-  top: 0;
-}
-.register .register__box__img_1--hide.show {
-  visibility: hidden;
-}
-.register .register__box__img_2 {
-  position: absolute;
-  top: 710px;
-  left: 95%;
-  cursor: pointer;
-}
-.register .register__box__img_2 img {
-  height: 20px;
-}
-.register .register__box__img_2--show {
-  position: inherit;
-  top: 0;
-  visibility: hidden;
-}
-.register .register__box__img_2--show.show {
-  visibility: visible;
-}
-.register .register__box__img_2--hide {
-  position: inherit;
-  top: 0;
-}
-.register .register__box__img_2--hide.show {
-  visibility: hidden;
-}
-.register #submit-register {
-  padding: 10px 20px;
-  color: #FFF;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.5s;
-  letter-spacing: 4px;
-  border: 1px solid #fff;
-  margin: auto;
-  background-color: #242026;
-}
-.register #submit-register:hover {
-  background: #3a3f63;
-  color: #fff;
-  box-shadow: 0 0 2px #6168a2, 0 0 25px, 0 0 50px #6168a2, 0 0 100px #6168a2;
-}
 .register__text {
   position: relative;
   padding-left: 2%;
@@ -942,9 +896,75 @@ body.show {
   display: flex;
   align-items: center;
 }
+.register__box__input--btn--submit {
+  padding: 10px 20px;
+  color: #FFF;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border: 1px solid #fff;
+  margin: auto;
+  background-color: #242026;
+}
+.register__box__input--btn--submit:hover {
+  background: #3a3f63;
+  color: #fff;
+  box-shadow: 0 0 2px #6168a2, 0 0 25px, 0 0 50px #6168a2, 0 0 100px #6168a2;
+}
 .register__box__input--btn input {
   padding: 20px 50px !important;
   font-size: 1.5em !important;
+}
+.register__box__img_1 {
+  position: absolute;
+  top: 590px;
+  left: 95%;
+  cursor: pointer;
+}
+.register__box__img_1 img {
+  height: 20px;
+}
+.register__box__img_1--show {
+  position: inherit;
+  top: 0;
+  visibility: hidden;
+}
+.register__box__img_1--show.show {
+  visibility: visible;
+}
+.register__box__img_1--hide {
+  position: inherit;
+  top: 0;
+}
+.register__box__img_1--hide.show {
+  visibility: hidden;
+}
+.register__box__img_2 {
+  position: absolute;
+  top: 710px;
+  left: 95%;
+  cursor: pointer;
+}
+.register__box__img_2 img {
+  height: 20px;
+}
+.register__box__img_2--show {
+  position: inherit;
+  top: 0;
+  visibility: hidden;
+}
+.register__box__img_2--show.show {
+  visibility: visible;
+}
+.register__box__img_2--hide {
+  position: inherit;
+  top: 0;
+}
+.register__box__img_2--hide.show {
+  visibility: hidden;
 }
 .register__box .main-register__form__field--psw:focus + .password-validation {
   visibility: visible;
@@ -999,7 +1019,6 @@ body.show {
     width: 80vw;
   }
 }
-
 .register__box .register__box__input input:focus ~ label,
 .register__box .register__box__input input:valid ~ label {
   top: -100px;
