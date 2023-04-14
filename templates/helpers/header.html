@@ -75,12 +75,12 @@
         </div>
     </nav>
     <div class="header__btn">
-        {% if not 'name_of_user' in session  %}
+        {% if not 'nom' in session  %}
             <button id="button-form" class="header__btn__profile" onclick="enable_Form()"><img src="../static/images/header/profile.svg" alt="profile logo"></button>
         {% else %}
-            <button id="button-form" class="header__btn__profile--connected" onclick="alert('connected')"><img src="../static/images/header/profile.svg" alt="profile logo"><p>{{ session['name_of_user'] }}</p></button>
+            <button id="button-form" class="header__btn__profile--connected" onclick="alert('connected')"><div>{{session['prenom'][0]}}{{session['nom'][0]}}</div></button>
         {% endif %}
-        <button type="button" class="btn" onclick=""><img src="../static/images/header/cart.svg" alt="cart logo"></button>
+        <button type="button" class="header__btn__profile--cart" onclick=""><img src="../static/images/header/cart.svg" alt="cart logo"></button>
     </div>
 </header>
 

@@ -155,7 +155,18 @@ body.show {
 .header__btn {
   padding-right: 10px;
 }
+.header__btn__profile {
+  background-color: #6168a2;
+  border: none;
+}
 .header__btn__profile--connected {
+  background-color: #6168a2;
+  border: 2px solid #333333;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.header__btn__profile--cart {
   background-color: #6168a2;
   border: none;
   height: 50px;
