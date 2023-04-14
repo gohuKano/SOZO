@@ -20,9 +20,18 @@
 # ecrire un message pour faire comprendre a l'utilisateur
 # qu'il est connecte ex: 'Bonjour Hugo.'
 # dans le login form changé ajouter 3 boutons :
-# i) Acceder à mon profile
-# ii) Bouton Deconexion
+# i) Acceder à mon profil
+# ii) Bouton Déconnection
 # iii) Mon historique de commande
+
+# TODO :
+# Faire connection DB slider newsletter à l'inscription (register)
+
+# TODO : 
+# Faire pop-up newsletter (cf nike, izac)
+
+# TODO
+# Faire cookies pro (pub ect) voir stripe (durée de vie)
 
 
 from flask import Flask, render_template, request, redirect, url_for, session
