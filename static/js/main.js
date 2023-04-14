@@ -37,10 +37,14 @@ const enable_burger = (e) => {
   document.getElementById("mobile-only__nav").classList.toggle("mobile-only__nav-open");
 };
 
-document.addEventListener("mousewheel", function(event){
-    if(event.wheelDelta > 0){
-        header.classList.remove("hide");
+let prevScrollpos = window.pageYOffset;
+
+window.addEventListener("scroll", function() {
+  let currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    header.classList.remove("hide");
   } else {
-        header.classList.add("hide");
+    header.classList.add("hide");
   }
-})
+  prevScrollpos = currentScrollPos;
+});
