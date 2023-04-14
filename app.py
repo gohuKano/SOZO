@@ -14,6 +14,7 @@ NAME_OF_DB = "sozo_db"
 USERNAME = "postgres"
 PASSWORD_OF_DB = "sozo"
 
+
 def get_db_connection():
     conn = psycopg2.connect(
         host = "localhost",
@@ -41,10 +42,6 @@ def register_process():
             password = escape(request.form.get("password-register"))
             confirm_password = escape(request.form.get("confirm-password"))
             checkbox_subscribe_newsletter = bool(escape(request.form.get("checkbox_subscribe_newsletter")))
-
-            print(prenom, nom, email, confirm_email, password, confirm_password, checkbox_subscribe_newsletter)
-            print(type(checkbox_subscribe_newsletter))
-            print(checkbox_subscribe_newsletter)
 
             if not user_already_register(get_db_connection(), email):
                 print("the user is not already register and so can be")
@@ -93,8 +90,10 @@ def login_process():
             password = escape(request.form.get("password"))
             # checking if the user has an account
             if user_has_account(get_db_connection(), email, password):
-                name_of_user = get_user_data(get_db_connection(), email, password, 1)
-                session['name_of_user'] = name_of_user
+                prenom = get_user_data(get_db_connection(), email, password, 1)
+                nom = get_user_data(get_db_connection(), email, password, 2)
+                session['prenom'] = prenom
+                session['nom'] = nom
                 return redirect(url_for("index"))
             else:
                 return redirect(url_for("index"))
