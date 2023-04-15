@@ -27,3 +27,13 @@ TODO :
 TODO : 
     ajouter plus de style a l'inscription a la newsletter 
     dans l'index ( partie avec le fond en image palmier ).
+
+TODO : 
+    automatiser l'envoie du mail des l'inscription 
+    d'un nouveau client si il a accepter la newsletter
+
+TODO : 
+    Voir pour la création des pages :
+        • account
+        • cart
+        • command

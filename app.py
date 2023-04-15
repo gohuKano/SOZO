@@ -18,7 +18,7 @@ PASSWORD_OF_DB = "sozo"
 app.secret_key = 'sozo'
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_REFRESH_EACH_REQUEST'] = True
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=5)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 
 def get_db_connection():
     conn = psycopg2.connect(
@@ -61,15 +61,16 @@ def register_process():
                     # subscribe the user to the newsletter
                     if not verify_subscription_newsletter(get_db_connection(), email):
                         if checkbox_subscribe_newsletter:
+                            # the user is not already subscribed to the newsletter
                             subscription_to_newsletters(get_db_connection(), prenom, nom, email)
-                            print("the user has subscribed to the newsletter.")
+
+                            # send a email to 
+
                             return redirect(url_for("index"))
                         else:
-                            print("the user has not subscribed to the newsletter.")
                             return redirect(url_for("index"))
                     else:
                         # the user is somehow already subscribed to the newsletter
-                        print("the user is already subsribed")
                         return redirect(url_for("index"))
                 else:
                     e = "email or password don't match"
@@ -183,6 +184,18 @@ def unsubscribe_process():
             return redirect(url_for("index"))
     else:
         return redirect(url_for("unsubscribe"))
+    
+@app.route("/account")
+def account():
+    return render_template("client/account.html")
+
+@app.route("/cart")
+def cart():
+    return render_template("client/cart.html")
+
+@app.route("/command")
+def command():
+    return render_template("client/command.html")
     
 @app.errorhandler(404)
 def page_not_found(e):

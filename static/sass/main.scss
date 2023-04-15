@@ -479,7 +479,6 @@ body {
 }
 
 .logged-box-blur{
-
   z-index: 3;
   opacity: 0;
   visibility: hidden;
@@ -498,7 +497,6 @@ body {
     transition:visibility 0s linear 0s, opacity 0.3s ease-in-out;
   }
 }
-
 
 .logged-box {
   visibility: hidden;
@@ -881,6 +879,7 @@ body {
     max-width: 50vw ;
   }
 }
+
 #newsletter-popup {
   display: none;
   position: fixed;
@@ -1348,14 +1347,14 @@ footer {
         justify-content: space-around;
         width: 50%;
         li a svg{
-        transform: scale(1);
-        transition: transform 0.2s;
-        height: 30px;
-        color: #fff;
-        &:hover {
-          transform: scale(1.2);
+          transform: scale(1);
           transition: transform 0.2s;
-        }
+          height: 30px;
+          color: #fff;
+          &:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s;
+          }
         }
       }
     }
