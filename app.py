@@ -64,7 +64,7 @@ def register_process():
                             # the user is not already subscribed to the newsletter
                             subscription_to_newsletters(get_db_connection(), prenom, nom, email)
 
-                            # send a email to 
+                            # send a email to the user the greet him
 
                             return redirect(url_for("index"))
                         else:

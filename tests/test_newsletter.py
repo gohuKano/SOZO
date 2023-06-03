@@ -2,6 +2,12 @@
 Python file of all functions related to the newsletter
 '''
 
+def send_greeting_email(email):
+    '''
+    function that send a message to the user that register
+    to greet him
+    '''
+
 def verify_subscription_newsletter(get_db_connection, email):
     '''
     function that verifies if the user is already registered in the newsletter
