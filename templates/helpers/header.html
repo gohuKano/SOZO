@@ -52,7 +52,7 @@
                 Bonjour {{session['prenom']}}, que souhaitez-vous faire ?
             </h3>
             <h5><a href="{{ url_for('account')}}">Mon compte</a></h5>
-            <h5><a href="{{ url_for('cart') }}">Mon pannier</a></h5>
+            <h5><a href="{{ url_for('cart') }}">Mon panier</a></h5>
             <h5><a href="{{ url_for('command') }}">Mes commandes</a></h5>
             <form method="POST" action="logout_process">
                 <input type="submit" value="Déconnexion">
